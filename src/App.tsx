@@ -1,20 +1,23 @@
 import React from 'react';
 import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-import {Button} from '@mui/material'
+import { Button } from '@mui/material'
 import './App.css';
+import Topbar from './components/Topbar';
+import Sidebar from './components/Sidebar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+
 
 function App() {
-  return (
-    <div className="App bg-blue-100">
-     tailwind
-     <div className="text-2xl bg-sky-50 font-bold underline">
-      Hello world!!
-      <ThreeDRotation />
-     
+  return ( 
+    <div className="admin-layout">
+      <Sidebar />
+      <div className="main-area">
+      <Topbar />
+  
+      </div>
     </div>
-    <Button variant="contained">Submit</Button>
-    </div>
-  );
+ );
 }
 
 export default App;
