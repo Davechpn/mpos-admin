@@ -1,0 +1,29 @@
+.layout{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr  ;
+    grid-template-rows: 56px 1fr 80px;
+    grid-gap:10px;
+    grid-template-areas: 
+    "sidebar topbar topbar"
+    "sidebar page page"
+    "sidebar page page"
+    ;
+}
+
+.page{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sidebar{
+    grid-area: sidebar;
+}
+
+.topbar{
+    grid-area: topbar;
+}
+
+.page{
+   grid-area: page;
+}
+

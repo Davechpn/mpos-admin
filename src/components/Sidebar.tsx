@@ -1,36 +1,55 @@
-import { orange } from "@mui/material/colors"
 import { Link } from "react-router-dom"
+import { AccessTime, Fax , Dashboard,Book, Engineering, People, Store, Category, Sell, LocalMall, MoneyOff, Payment } from '@mui/icons-material';
+import "./sidebar.css"
 
 const Sidebar = () => {
-   return (<div style={{ background: 'orange' }} className="rounded-full">
-   
-    <ul>
-        <li><Link to="/">Dashboard</Link></li>
+    return (
+        <div className="sidebar-content">
+            <div></div>
 
-        <li>INTERNAL</li>
-        <li><Link to="/internal/staff">Staff</Link></li>
-        <li><Link to="/internal/roles">Roles</Link></li>
-        <li><Link to="/internal/teams">Teams</Link></li>
-       
-        <li>BUSINESSES</li>
-        <li><Link to="/businesses/centers">Centers</Link></li>
-        <li><Link to="/businesses/main-offices">Main Offices</Link></li>
-       
+            <div>
 
-        <li>PRODUCTS</li>
-        <li><Link to="/products/brands">Brands</Link></li>
-        <li><Link to="/products/categories">Categories</Link></li>
+                <div className="link-header">INTERNAL</div>
 
-        <li>FEATURES</li>
-        <li><Link to="/features/premiums">&nbsp;Premiums</Link></li>
-        <li><Link to="/features/promotions">&nbsp;Promotions</Link></li>
+                <ul>
+                    <li><Link to="/"> <Dashboard /> Dashboad</Link></li>
+                    <li><Link to="/internal/staff"> <Engineering/> Staff</Link></li>
+                    <li><Link to="/internal/roles"> <AccessTime/> Roles</Link></li>
+                    <li><Link to="/internal/teams"> <People/> Teams</Link></li>
+                </ul>
 
-        <li>SUBSCRIPTIONS</li>
-        <li><Link to="subscriptions/payments">&nbsp; Payments</Link></li>
-        <li><Link to="subscriptions/guidelines">&nbsp; Guidlines</Link></li>
-    </ul>
-   
-   </div>)
+
+                <div className="link-header">BUSINESSES</div>
+                <ul>
+                    <li><Link to="/businesses/centers"><Store/>Centers</Link></li>
+                    <li><Link to="/businesses/main-offices"><Fax/> Main Offices</Link></li>
+                </ul>
+
+
+
+                <div className="link-header">PRODUCTS</div>
+                <ul>
+                    <li><Link to="/products/brands"><LocalMall/>Brands</Link></li>
+                    <li><Link to="/products/categories"><Category/>Categories</Link></li>
+                </ul>
+
+
+                <div className="link-header">FEATURES</div>
+                <ul>
+                    <li><Link to="/features/premiums"><Sell/>Premiums</Link></li>
+                    <li><Link to="/features/promotions"><MoneyOff/>Promotions</Link></li>
+                </ul>
+
+
+                <div className="link-header">SUBSCRIPTIONS</div>
+                <ul>
+                    <li><Link to="subscriptions/payments"><Payment/> Payments</Link></li>
+                    <li><Link to="subscriptions/guidelines"><Book/> Guidlines</Link></li>
+                </ul>
+            </div>
+
+
+        </div>)
 }
 
 export default Sidebar

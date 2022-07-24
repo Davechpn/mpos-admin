@@ -1,22 +1,16 @@
-import React from 'react';
-import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-import { Button } from '@mui/material'
 import './App.css';
-import Topbar from './components/Topbar';
-import Sidebar from './components/Sidebar';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './layout/layout';
+import Login from './login/login';
 
 
 
 function App() {
   return ( 
-    <div className="admin-layout">
-      <Sidebar />
-      <div className="main-area">
-      <Topbar />
-  
-      </div>
-    </div>
+     <Routes>
+       <Route path="*" element={<Layout/>} ></Route>
+       <Route path="/login" element= {<Login/>}></Route>
+     </Routes>
  );
 }
 
