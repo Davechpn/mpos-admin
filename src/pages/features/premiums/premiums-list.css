@@ -1,0 +1,8 @@
+.premiums-list-page{
+    grid-template-areas:
+    "header header header actions"
+    "filter filter list list"
+    "filter filter list list"
+    "filter filter list list"
+    "filter filter paginator paginator"
+}

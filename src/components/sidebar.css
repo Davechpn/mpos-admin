@@ -6,25 +6,22 @@
 
     .sidebar-content{
         display: grid;
-        grid-template-rows: 78px 1fr;
-        @apply h-full p-2 text-white text-sm drop-shadow;
-       
-
-    
+        grid-template-rows: 78px 1fr 32px;
+        @apply h-full p-2  text-sm  bg-white;
     } 
 
 
     .link-header{
-        @apply text-indigo-400 mt-6 text-base;
-       
+        @apply mt-6 text-base text-gray-400;
     }
 
     ul {
-    @apply ml-2;
+       @apply ml-8 ;
     }
 
     ul li {
-        @apply text-violet-400
+        @apply text-gray-500 mt-1 text-xs ml-4;
+        
     }
     
   }

@@ -9,6 +9,41 @@
     .prg{
         @apply text-gray-600;
     }
+
+    .page-content{
+      /* border:1px solid blue; */
+      height:100%;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr 1fr;
+      grid-template-rows: 56px 1fr 1fr 2fr 32px;
+      grid-gap:16px;
+    }
+    .section{
+      @apply bg-blue-200 text-gray-500 text-sm flex flex-col justify-center items-center;
+    }
+
+    .header{
+      grid-area:header;
+    }
+
+    .search{
+      grid-area:search
+    }
+
+    .filter{
+      grid-area:filter
+    }
+
+    .list{
+      grid-area:list
+    }
+    .preview{
+      grid-area:preview
+    }
+    .paginator{
+      grid-area:paginator
+    }
+    
     
   }
 

@@ -1,0 +1,8 @@
+.guide-page{
+    grid-template-areas:
+    "header header header header"
+    "filter list list list"
+    "filter list list list"
+    "filter list list list"
+    "filter list list list"
+}

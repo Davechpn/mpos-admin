@@ -1,0 +1,35 @@
+.dash-page{
+    grid-template-areas:
+    "header header header header"
+    "counter-centers counter-brands cities-graph cities-graph"
+    "subs-graph subs-graph cities-graph cities-graph"
+    "subs-graph subs-graph industry-graph industry-graph"
+    "subs-graph subs-graph industry-graph industry-graph"
+
+} 
+
+.header{
+    grid-area: header;
+    align-items:flex-start;
+    padding:6px
+}
+.counter-centers{
+    grid-area:counter-centers
+}
+
+.counter-brands{
+    grid-area:counter-brands
+}
+
+.cities-graph{
+    grid-area:cities-graph
+}
+
+.subs-graph{
+    grid-area:subs-graph
+}
+.industry-graph{
+    grid-area:industry-graph
+}
+
+
