@@ -1,0 +1,17 @@
+.access-rules-container{
+      border-bottom:1px solid #ddd;
+      padding-bottom:16px
+}
+.access-rules-item{
+    display:flex;
+    align-items:center
+}
+.access-rule-role{
+    width:150px;
+    padding-left:8px
+}
+.access-rule-label{
+    display:flex;
+    align-items:center;
+    font-size:0.8rem
+}

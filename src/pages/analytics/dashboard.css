@@ -5,7 +5,6 @@
     "subs-graph subs-graph cities-graph cities-graph"
     "subs-graph subs-graph industry-graph industry-graph"
     "subs-graph subs-graph industry-graph industry-graph"
-
 } 
 
 .header{
@@ -15,6 +14,10 @@
 }
 .counter-centers{
     grid-area:counter-centers
+}
+.counter-total{
+    font-size:1.6rem;
+    margin-bottom:6px
 }
 
 .counter-brands{
@@ -31,5 +34,64 @@
 .industry-graph{
     grid-area:industry-graph
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .dash-page{
+        grid-template-areas:
+        "header header header header"
+        "counter-centers counter-brands counter-brands counter-brands"
+        "cities-graph cities-graph cities-graph cities-graph"
+        "industry-graph industry-graph industry-graph industry-graph"
+        "subs-graph subs-graph subs-graph subs-graph"
+    } 
+
+    .subs-graph{
+          height:300px
+    }
+    .counter-centers{
+        width: 45vw;
+      }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .dash-page{
+        grid-template-areas:
+        "header header header header"
+        "counter-centers counter-brands counter-brands counter-brands"
+        "cities-graph cities-graph cities-graph cities-graph"
+        "industry-graph industry-graph industry-graph industry-graph"
+        "subs-graph subs-graph subs-graph subs-graph"
+    }
+    .subs-graph{
+        height:300px
+  }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .dash-page{
+        grid-template-areas:
+        "header header header header"
+        "counter-centers counter-brands cities-graph cities-graph"
+        "subs-graph subs-graph cities-graph cities-graph"
+        "subs-graph subs-graph industry-graph industry-graph"
+        "subs-graph subs-graph industry-graph industry-graph"
+    } 
+    .subs-graph{
+        height:100%
+  }
+
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
 
 

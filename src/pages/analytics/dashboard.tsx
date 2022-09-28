@@ -1,11 +1,20 @@
-import Header from "../../components/header"
+import PageHeader from "../../components/page-header/page-header"
+import citiesData from "../../fake-db/cities-data"
+import ActivityLine from "./activity-charts/activities.line"
+import activityData from "../../fake-db/activity-data"
+import CitiesBar from "./cities-charts/cities.bar"
+
 import "./dashboard.css"
+import IndustriesPie from "./industries-charts/industries.pie"
+import industryData from "../../fake-db/industries-data"
 
 const Dashboard = () =>{
+
   return (
+ 
     <div className="page-content dash-page">
-      <div className="section header">
-        <Header/>
+      <div className=" header">
+        <PageHeader title="Dasboard"/>
       </div>
       
 
@@ -16,14 +25,23 @@ const Dashboard = () =>{
       </div>
       <div className="section counter counter-brands">
         <div className="counter-total">600</div>
-        <div className="counter-label">Product Brands</div>
+        <div className="counter-label">Captured Brands</div>
       </div>
 
    
 
-      <div className="section cities-graph">Cities bar graph</div>
-      <div className="section subs-graph">Subscriptions / adoption line graph</div>
-      <div className="section industry-graph">Industries pie chat</div>
+      <div className=" cities-graph">
+      
+       <IndustriesPie data = {industryData}/>
+      </div>
+      <div className=" subs-graph">
+        {/* Subscriptions / adoption line graph */}
+        <CitiesBar data={citiesData}/>
+      </div>
+      <div className=" industry-graph">
+      
+      <ActivityLine data = { activityData }/>
+        </div>
 
 
     </div>

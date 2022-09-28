@@ -23,6 +23,10 @@
         @apply text-gray-500 mt-1 text-xs ml-4;
         
     }
+
+    .tech-tag{
+        font-size:0.4rem
+    }
     
   }
 

@@ -1,0 +1,21 @@
+.brand-new-page{
+    grid-template-areas:
+    "header header header actions"
+    "upload list list instructions"
+    "upload list list instructions"
+    "upload list list instructions"
+    "upload list list instructions"
+}
+
+.upload{
+    grid-area:upload
+}
+
+.instructions{
+    grid-area:instructions
+}
+.form{
+    display:flex;
+    flex-direction:column
+
+}

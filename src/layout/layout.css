@@ -12,7 +12,8 @@
 }
 
 .page{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    border-left:1px solid #eee
 }
 
 .sidebar{
@@ -25,5 +26,50 @@
 
 .page{
    grid-area: page;
+}
+
+.actions{
+    display:flex;
+    /* justify-content:flex-end; */
+    align-items:center;
+    padding:0px;
+    width:100%;
+    /* border:1px solid green */
+}
+.preview{
+    padding:8px;
+    min-width:300px;
+    /* border-left:1px solid #ddd; */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-top:0px;
+    font-size:0.8rem
+
+}
+
+td{
+    vertical-align: top;
+    padding-right :12px
+}
+
+@media only screen and (max-width: 600px) {
+.layout{
+    grid-template-areas: 
+    "topbar topbar topbar"
+    "page page page"
+    "page page page"
+    ;
+}
+.sidebar{
+    display:none
+} 
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .sidebar{
+        display:block
+    } 
 }
 

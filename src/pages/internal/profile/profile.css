@@ -1,0 +1,20 @@
+.profile-list-page{
+    grid-template-areas:
+    "header search search actions"
+    "filter earnings earnings contacts"
+    "filter earnings earnings contacts"
+    "filter calendar calendar calendar"
+    "filter calendar calendar calendar"
+}
+
+
+.contacts{
+    grid-area: contacts
+}
+
+.calendar{
+    grid-area: calendar
+}
+.earnings{
+    grid-area: earnings
+}

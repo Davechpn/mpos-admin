@@ -1,8 +1,8 @@
 .main-offices-list-page{
     grid-template-areas:
     "header search search actions"
-    "filter list list list"
-    "filter list list list"
-    "filter list list list"
-    "filter paginator paginator paginator"
+    "list list list preview"
+    "list list list preview"
+    "list list list preview"
+    "paginator paginator paginator paginator"
 }

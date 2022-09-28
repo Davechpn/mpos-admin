@@ -19,7 +19,15 @@
       grid-gap:16px;
     }
     .section{
-      @apply bg-blue-200 text-gray-500 text-sm flex flex-col justify-center items-center;
+      border-radius:4px;
+      @apply bg-blue-100 text-gray-500 text-sm flex flex-col justify-center items-center;
+    }
+
+    .section-header{
+      font-size:1.2rem;
+      margin-bottom:8px;
+      display:flex;
+      justify-content:space-between
     }
 
     .header{
@@ -29,10 +37,15 @@
     .search{
       grid-area:search
     }
+    .actions{
+      display:flex;
+      justify-content:flex-end
+    }
 
     .filter{
       grid-area:filter
     }
+
 
     .list{
       grid-area:list

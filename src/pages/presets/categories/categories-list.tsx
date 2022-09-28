@@ -1,11 +1,11 @@
-import Header from "../../../components/header"
+import PageHeader from "../../../components/page-header/page-header"
 import "./categories-list.css"
 
 const CategoriesList = () => {
   return (
     <div className="page-content categories-list-page">
       <div className="section header">
-        <Header />
+        <PageHeader/>
       </div>
 
       <div className="section search">Search</div>

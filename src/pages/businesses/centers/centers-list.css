@@ -1,9 +1,16 @@
 .centers-page{
     grid-template-areas:
     "header search search actions"
-    "filter list list list"
-    "filter list list list"
-    "filter list list list"
-    "filter paginator paginator paginator"
+    "list list list filter"
+    "list list list filter"
+    "list list list filter"
+    "paginator paginator paginator paginator"
+}
+
+
+.map{
+    height:100%;
+    width:100%;
+    object-fit:cover
 }
 

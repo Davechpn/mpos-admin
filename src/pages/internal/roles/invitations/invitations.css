@@ -1,0 +1,38 @@
+.invitation-item{
+    border:1px solid #ddd;
+    display:flex;
+    align-items:center
+
+}
+
+.invitation-item-avatar{
+    height:44px;
+    width:44px
+}
+
+.invitation-item-details{
+    flex-grow:1;
+    cursor:pointer
+}
+
+.invitation-item-email{
+    font-size:0.9rem;
+}
+
+.invitation-item-details-top{
+    display:flex;
+    justify-content:space-between; 
+}
+
+.invitation-item-details-bottom{
+    display:flex;
+    justify-content:space-between;
+    font-size:0.6rem;
+    height:0.9rem
+}
+
+.invitation-item-status{
+    background-color:#ddd;
+    padding:0px 2px;
+    margin-right:0px
+}

@@ -1,8 +1,43 @@
 .roles-list-page{
     grid-template-areas:
     "header header header actions"
-    "filter list list list"
-    "filter list list list"
-    "filter list list list"
-    "filter list list list"
+    "filter access-rules access-rules invitations"
+    "filter access-rules access-rules invitations"
+    "filter access-rules access-rules desc"
+    "filter access-rules access-rules desc"
+}
+
+
+.access-rules{
+grid-area : access-rules;
+/* border:1px solid green; */
+height:100%
+}
+
+.invitations{
+    grid-area:invitations;
+}
+
+.desc{
+    grid-area:desc;
+    font-size:0.9rem;
+}
+
+
+.role-item{
+    display:flex;
+    align-item:center;
+    margin-top:6px;
+    border-bottom: 1px solid #ddd;
+    cursor:pointer
+}
+
+.role-item-label{
+    flex-grow:1;
+    padding:2px
+}
+
+.role-item-actions{
+    display:flex;
+    align-items:center
 }

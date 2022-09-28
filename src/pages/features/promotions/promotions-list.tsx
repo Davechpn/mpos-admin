@@ -1,11 +1,11 @@
-import Header from "../../../components/header"
+import PageHeader from "../../../components/page-header/page-header"
 import "./promotions-list.css"
 
 const PromotionsList = () => {
     return (
         <div className="page-content promotions-list-page">
             <div className="section header">
-                <Header />
+                <PageHeader/>
             </div>
 
             <div className="section filter">Promotions table</div>

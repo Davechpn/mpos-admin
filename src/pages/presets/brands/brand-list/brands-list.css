@@ -1,0 +1,13 @@
+.brands-list-page{
+    grid-template-areas:
+    "header search search actions"
+    "list list list prev"
+    "list list list prev"
+    "list list list prev"
+    "list list list prev"
+}
+
+.prev{
+    grid-area: prev
+}
+
