@@ -3,9 +3,15 @@ import AuthContext from "../context/auth.provider"
 import axios from '../api/axios'
 import { Button, TextField } from "@mui/material"
 import { useNavigate } from "react-router-dom"
+import {auth, provider} from "../firebase-setup/firebase";
+import { signInWithPopup } from "firebase/auth"
+import Cookie from 'universal-cookie'
+
 import './login.css'
 
 const LOGIN_URL = '/token'
+const cookies = new Cookie()
+
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -13,6 +19,7 @@ const Login = () => {
 
     const { setAuth } = useContext(AuthContext)
     const navigate = useNavigate()
+
     const handleSubmit = async (e: any) => {
         e.preventDefault()
         console.log(email, password)
@@ -28,6 +35,21 @@ const Login = () => {
         }
     }
 
+    const signInWithGoogle = async() =>{
+        try{
+            const results = await signInWithPopup(auth,provider)
+            console.log(results)
+            //set cookies here
+            cookies.set("auth_token",results.user.refreshToken)
+            setAuth(results.user)
+            navigate("/", { replace: true });
+
+        }catch(err){
+            console.error(err)
+        }
+   
+    }
+
     return (<div className="login-container">
         <div >
             <h1>Login</h1><br />
@@ -36,6 +58,7 @@ const Login = () => {
                 <TextField type="password" value={password} onChange={(e: any) => { setPassword(e.target.value) }} />
 
                 <Button type="submit" >Login </Button>
+                <button onClick={signInWithGoogle} >Signin with Google</button>
             </form>
         </div>
 

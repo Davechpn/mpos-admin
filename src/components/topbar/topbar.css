@@ -5,4 +5,9 @@
 
 .topbar-container{
   align-items:center;
+  justify-content:space-between;
+}
+.top-bar-center{
+  margin-left:-112px;
+  color:#888
 }

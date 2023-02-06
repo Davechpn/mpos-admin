@@ -1,8 +1,8 @@
 .invitation-item{
-    border:1px solid #ddd;
+    border-bottom:1px solid #ddd;
     display:flex;
-    align-items:center
-
+    align-items:center;
+    padding:6px 0px
 }
 
 .invitation-item-avatar{

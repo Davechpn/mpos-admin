@@ -43,7 +43,18 @@
     }
 
     .filter{
-      grid-area:filter
+      grid-area:filter;
+   
+    }
+
+    .internals-filter{
+      grid-area:filter;
+      margin-bottom:-16px;
+      margin-left:-16px;
+      padding-left:24px;
+      border-radius:0px;
+      @apply bg-blue-50 font-bold;
+      
     }
 
 
@@ -51,7 +62,7 @@
       grid-area:list
     }
     .preview{
-      grid-area:preview
+      grid-area:preview;
     }
     .paginator{
       grid-area:paginator
@@ -59,4 +70,44 @@
     
     
   }
+
+
+  .invitation-item{
+    border-bottom:1px solid #ddd;
+    display:flex;
+    align-items:center;
+    padding:6px 0px
+}
+
+.invitation-item-avatar{
+    height:44px;
+    width:44px
+}
+
+.invitation-item-details{
+    flex-grow:1;
+    cursor:pointer
+}
+
+.invitation-item-email{
+    font-size:0.9rem;
+}
+
+.invitation-item-details-top{
+    display:flex;
+    justify-content:space-between; 
+}
+
+.invitation-item-details-bottom{
+    display:flex;
+    justify-content:space-between;
+    font-size:0.6rem;
+    height:0.9rem
+}
+
+.invitation-item-status{
+    background-color:#ddd;
+    padding:0px 2px;
+    margin-right:0px
+}
 
