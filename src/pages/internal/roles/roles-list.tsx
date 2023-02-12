@@ -9,7 +9,7 @@ import Actions from "../../../components/actions/actions";
 import { Add, Close, Done, Edit } from "@mui/icons-material";
 import NewRole from "./new-role";
 import { firestore_db } from "../../../firebase-setup/firebase";
-import { addDoc, collection, doc, onSnapshot, query } from "firebase/firestore";
+import { addDoc, collection, doc, onSnapshot, query, updateDoc } from "firebase/firestore";
 import Members from "../teams/members/members";
 
 
@@ -31,7 +31,6 @@ const RolesList = () => {
                 roles.push({ ...d.data(), id: d.id })
             })
             setRoles(roles as any)
-            console.log(roles)
         })
 
         const queryUsers = query(usersRef)
@@ -64,6 +63,23 @@ const RolesList = () => {
         const rolesRef = collection(firestore_db, 'roles');
         addDoc(rolesRef,role)  
         setOpenNewRole(false)
+    }
+    
+    const updatePermissions = (update:any)=>{
+        
+       
+        
+        const new_perms = {...selectedRole?.permissions,...update }
+        console.log('new perms',new_perms)
+
+        const roleRef = doc(firestore_db, 'roles', String(selectedRole?.id));
+        updateDoc(roleRef, {
+         permissions: new_perms,
+        }).then(c=>{
+        })
+        let r =  {...selectedRole, permissions:new_perms}
+        setSelectedRole(r as any)
+        
     }
 
 
@@ -106,12 +122,10 @@ const RolesList = () => {
                             <Close fontSize="small" />
                         </div>
                     </div>}
-                {selectedRole && <AccessRules permissions={selectedRole.permissions} />}
+                {selectedRole && <AccessRules change={updatePermissions} permissions={selectedRole.permissions} />}
             </div>
 
             <div className="invitations">
-        
-             
                 {selectedRole && <Members users={users} />}
             </div>
 

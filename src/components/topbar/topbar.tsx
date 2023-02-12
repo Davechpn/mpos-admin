@@ -2,18 +2,42 @@ import { Notifications, Person, Email, PersonAdd, Settings, Logout } from "@mui/
 import { MenuItem, Menu, Button, Tooltip, IconButton, Avatar, Divider, ListItemIcon } from "@mui/material"
 import { useContext, useState } from "react"
 import AuthContext from "../../context/auth.provider"
+import MessagesContext from "../../context/messages.provider"
 
 import "./topbar.css"
 
 const Topbar = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl1, setAnchorEl1] = useState<null | HTMLElement>(null);
+  const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
+  const { setOpenTab } = useContext(MessagesContext)
+
+
+
+  const open1 = Boolean(anchorEl1);
+  const open2 = Boolean(anchorEl2);
+
+  const exampleMessage = {
+    id:"aaaa",
+    type:"task",
+    name: "Collecting shop pics",
+    avatar: "",
+    total_unread: 5
+}
+
+  const handleClick1 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl1(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
+
+  const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl2(event.currentTarget);
+  };
+
+  const handleClose1 = () => {
+    setAnchorEl1(null);
+  };
+  const handleClose2 = () => {
+    setAnchorEl2(null);
   };
 
   const { auth } = useContext(AuthContext
@@ -23,7 +47,65 @@ const Topbar = () => {
 
 
     <div>
-      <Email /> &nbsp;<Notifications />
+      <Tooltip title="New Messages">
+        <IconButton
+          onClick={handleClick1}
+          size="small"
+          sx={{ ml: 2 }}
+          aria-controls={open1 ? 'messages-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open1 ? 'true' : undefined}
+        >
+          <Email />
+
+        </IconButton>
+
+      </Tooltip>
+
+      <Menu
+        anchorEl={anchorEl1}
+        id="messages-menu"
+        open={open1}
+        onClose={handleClose1}
+        onClick={handleClose1}
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            overflow: 'visible',
+            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            mt: 1.5,
+            '& .MuiAvatar-root': {
+              width: 32,
+              height: 32,
+              ml: -0.5,
+              mr: 1,
+            },
+            '&:before': {
+              content: '""',
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              left: 14,
+              width: 10,
+              height: 10,
+              bgcolor: 'background.paper',
+              transform: 'translateY(-50%) rotate(45deg)',
+              zIndex: 0,
+            },
+          },
+        }}
+        transformOrigin={{ horizontal: 'left', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+      >
+        <span style={{ margin: 8 }}>Messages</span>
+        <Divider />
+        <MenuItem onClick={()=>setOpenTab(exampleMessage)}>
+          <Avatar /><span style={{ fontSize: '0.8rem' }}>Message summary here to preview</span>
+        </MenuItem>
+
+      </Menu>
+
+
     </div>
 
     <div className="top-bar-center-container">
@@ -33,28 +115,28 @@ const Topbar = () => {
     </div>
 
     <div>
-      
-      
+
+
       <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-          >
-            <Avatar sx={{ width: 32, height: 32 }}>{ auth?.user?.name.substring(0, 1) }</Avatar>
-          </IconButton>
-        </Tooltip>
+        <IconButton
+          onClick={handleClick2}
+          size="small"
+          sx={{ ml: 2 }}
+          aria-controls={open2 ? 'account-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open2 ? 'true' : undefined}
+        >
+          <Avatar sx={{ width: 32, height: 32 }}>{auth?.user?.name.substring(0, 1)}</Avatar>
+        </IconButton>
+      </Tooltip>
 
 
-        <Menu
-        anchorEl={anchorEl}
+      <Menu
+        anchorEl={anchorEl2}
         id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
+        open={open2}
+        onClose={handleClose2}
+        onClick={handleClose2}
         PaperProps={{
           elevation: 0,
           sx: {

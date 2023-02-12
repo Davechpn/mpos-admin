@@ -26,78 +26,20 @@ const NewRole = (props: any) => {
             country: "",
             suspended_on: null,
             permissions: {
-                dashboard: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                roles: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                teams: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                centers: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                main_offices: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                premiums: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                promos: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                brands: {
-                    read: true,
-                    write: true,
-                    edit: true,
-                    delete: false
-                },
-                categories: {
-                    read: true,
-                    write: true,
-                    edit: true,
-                    delete: false
-                },
-                moderation: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                payments: {
-                    read: false,
-                    write: false,
-                    edit: false,
-                    delete: false
-                },
-                guides: {
-                    read: true,
-                    write: false,
-                    edit: false,
-                    delete: false
-                }}
+                dashboard:"no_access",
+                roles: "no_access",
+                teams: "no_access",
+                centers: "no_access",
+                offices: "no_access",
+                premiums: "no_access",
+                promos: "no_access",
+                brands: "no_access",
+                categories: "no_access",
+                moderation: "no_access",
+                payments: "no_access",
+                guides: "no_access",
+                feedback: "no_access",
+            }
         }
         props.save(role)
     }

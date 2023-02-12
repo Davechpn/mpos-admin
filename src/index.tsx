@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 import { AuthProvider } from './context/auth.provider';
+import { MessagesProvider } from './context/messages.provider';
 
 
 const root = ReactDOM.createRoot(
@@ -21,9 +22,11 @@ root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <AuthProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <MessagesProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </MessagesProvider>
       </AuthProvider>
     </ApolloProvider>
   </React.StrictMode>
