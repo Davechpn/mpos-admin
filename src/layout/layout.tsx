@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom"
+import Chatstrip from "../components/chat/chat-strip"
 import Sidebar from "../components/sidebar/sidebar"
 import Topbar from "../components/topbar/topbar"
 import Dashboard from "../pages/analytics/dashboard"
@@ -17,32 +18,37 @@ import PaymentsList from "../pages/subscriptions/payments/payments-list"
 import "./layout.css"
 
 const Layout = () => {
-    
+
+
+
     return (<div className="layout">
         <div className="sidebar">
-           <Sidebar />
+            <Sidebar />
         </div>
         <div className="topbar">
-           <Topbar />
+            <Topbar />
         </div>
         <div className="page p-4">
             <Routes>
-                <Route path="/" element={<Dashboard />} />  
-                <Route path="/internal/roles" element={<RolesList/>} />
-                <Route path="/profile/:id" element={<Profile/>} />
-                <Route path="/internal/teams" element={<TeamsList/>} />
-                <Route path="/businesses/centers" element={<CentersList/>} />
-                <Route path="/businesses/main-offices" element =  {<MainOfficesList/>} />
-                <Route path="/features/premiums" element={<PremiumsList/>}/>
-                <Route path="/features/promotions" element={<PromotionsList/>}/>
-                <Route path="/presets/brands" element={<BrandsList/>}/>
-                <Route path="/presets/brands/new" element={<BrandNew/>}/>
-                <Route path="/presets/categories" element={<CategoriesList/>}/>
-                <Route path="/subscriptions/payments" element={<PaymentsList/>}/>
-                <Route path="/subscriptions/guidelines" element={<Guide/>}/>
-                
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/internal/roles" element={<RolesList />} />
+                <Route path="/profile/:id" element={<Profile />} />
+                <Route path="/internal/teams" element={<TeamsList />} />
+                <Route path="/businesses/centers" element={<CentersList />} />
+                <Route path="/businesses/main-offices" element={<MainOfficesList />} />
+                <Route path="/features/premiums" element={<PremiumsList />} />
+                <Route path="/features/promotions" element={<PromotionsList />} />
+                <Route path="/presets/brands" element={<BrandsList />} />
+                <Route path="/presets/brands/new" element={<BrandNew />} />
+                <Route path="/presets/categories" element={<CategoriesList />} />
+                <Route path="/subscriptions/payments" element={<PaymentsList />} />
+                <Route path="/subscriptions/guidelines" element={<Guide />} />
+
 
             </Routes>
+        </div>
+        <div className="chatbar">
+            <Chatstrip />
         </div>
 
     </div>)

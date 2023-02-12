@@ -1,27 +1,35 @@
 .layout{
     height: 100vh;
+    overflow:hidden;
     display: grid;
     grid-template-columns: 175px 1fr 1fr  ;
-    grid-template-rows: 56px 1fr 80px;
+    grid-template-rows: 56px 1fr 56px;
     grid-gap:10px;
     grid-template-areas: 
     "sidebar topbar topbar"
     "sidebar page page"
-    "sidebar page page"
+    "sidebar chatbar chatbar"
     ;
+
 }
 
 .page{
     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border-left:1px solid #eee
 }
 
 .sidebar{
     grid-area: sidebar;
+  
 }
 
 .topbar{
     grid-area: topbar;
+}
+.chatbar{
+    grid-area:chatbar;
+    margin-top:-10px
 }
 
 .page{
@@ -39,10 +47,9 @@
 .preview{
     padding:8px;
     min-width:300px;
-    /* border-left:1px solid #ddd; */
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    /* justify-content:center; */
     padding-top:0px;
     font-size:0.8rem
 

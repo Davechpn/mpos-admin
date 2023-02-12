@@ -1,4 +1,4 @@
-export interface contact {
+export interface Contact {
     name:string,
     address:string,
     city:string,
@@ -7,3 +7,4 @@ export interface contact {
     tell:string,
     country:string,
 }
+

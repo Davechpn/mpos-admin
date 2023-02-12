@@ -7,23 +7,18 @@ export interface Role {
 }
 
 interface Permissions{
-    dashboard:Access,
-    roles:Access,
-    teams:Access,
-    centers:Access,
-    main_offices:Access,
-    premiums:Access,
-    promos:Access,
-    brands:Access,
-    categories:Access,
-    moderation:Access,
-    payments:Access,
-    guides:Access
+    dashboard:string,
+    roles:string,
+    teams:string,
+    centers:string,
+    offices:string,
+    premiums:string,
+    promos:string,
+    brands:string,
+    categories:string,
+    moderation:string,
+    payments:string,
+    feedback:string
+    guides:string
 }
 
-interface Access{
-    read:boolean,
-    write:boolean,
-    edit:boolean,
-    delete:boolean
-}

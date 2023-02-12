@@ -4,7 +4,7 @@ import "./actions.css"
 
 const Actions = (props: any) => {
     return (<div className="actions-content">
-        <ButtonGroup color="secondary" variant="contained" >
+        <ButtonGroup  variant="contained" >
            
        {props.add && <Button startIcon={<Add />} onClick={props.add}>New</Button>} 
        {props.edit && <Button startIcon={<Edit />} onClick={props.add}>Edit</Button>} 

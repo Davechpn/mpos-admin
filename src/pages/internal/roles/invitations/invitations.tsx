@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { invitations_data } from "../../../../fake-db/invitations"
 import DeleteIcon from '@mui/icons-material/Delete';
+
 import "./invitations.css"
 import avatar from "./avatar.jpg"
 import { useNavigate } from "react-router-dom";
+import { DeleteOutline } from "@mui/icons-material";
 
 
 const Invitations = () => {
@@ -24,7 +26,7 @@ const Invitations = () => {
                     <div className="invitation-item-details">
                         <div className="invitation-item-details-top">
                             <div className="invitation-item-email">{user.email}</div>
-                            <div className="invitation-item-action"><DeleteIcon /></div>
+                            <div className="invitation-item-action"><DeleteOutline /></div>
                         </div>
 
                         <div className="invitation-item-details-bottom">

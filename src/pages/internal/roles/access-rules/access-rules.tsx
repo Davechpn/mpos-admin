@@ -1,39 +1,57 @@
-import { Checkbox } from "@mui/material"
+import { Checkbox, FormControl, MenuItem } from "@mui/material"
 import { useEffect, useState } from "react"
 import "./access-rules.css"
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { green } from "@mui/material/colors";
+
+const features_areas = [
+    'dashboard',
+    'roles',
+    'teams',
+    'centers',
+    'offices',
+    'premiums',
+    'promos',
+    'payments',
+    'brands',
+    'categories',
+    'moderation',
+    'feedback'
+]
 
 const AccessRules = (props: any) => {
     const [perms, setPerms] = useState<string[]>([])
+    const [age, setAge] = useState('');
 
+    console.log(props)
+    const handleChange = (event: SelectChangeEvent, key:string) => {
+        const new_value = {[key]:event.target.value}
+        console.log(new_value)
+        props.change(new_value)
+    };
 
 
     return (<div className="access-rules-container">
         {
-           Object.keys(props.permissions).map((perm) => 
-            <div key={perm} className="access-rules-item">
-                <div className="access-rule-role">{perm.charAt(0).toUpperCase() + perm.slice(1)}</div>
+            features_areas.map((perm) =>
+                <div key={perm} className="access-rules-item">
+                    <div className="access-rule-role">{perm.charAt(0).toUpperCase() + perm.slice(1)}</div>
 
-                <div className="access-rule-label">
-                    <Checkbox size="small" checked={props.permissions[perm].read} color="default"/>
-                    <div className="access-rule">Read</div>
-                </div>
+                    <FormControl variant="standard" sx={{ m: 0.4, minWidth: 260 }} style={{ fontSize: 10 }} size="small">
+                        <Select
+                            style={{ fontSize: 12 }}
+                            id="dashboard_rule"
+                            value={props.permissions[perm]}
+                            onChange={($event)=>handleChange($event,perm)}>
+                            <MenuItem value="no_access" style={{ fontSize: 12 }}>None</MenuItem>
+                            <MenuItem value="viewer" style={{ fontSize: 12, color:"red" }}>Viewer</MenuItem>
+                            <MenuItem value="editor" style={{ fontSize: 12, color:"orange" }}>Editor</MenuItem>
+                            <MenuItem value="admin" style={{ fontSize: 12, color:"green" }}>Admin</MenuItem>
+                        </Select>
+                    </FormControl>
 
-                <div className="access-rule-label">
-                    <Checkbox size="small" checked={props.permissions[perm].write} color="default"/>
-                    <div className="access-rule">Write</div>
-                </div>
 
-                <div className="access-rule-label">
-                    <Checkbox size="small" checked={props.permissions[perm].edit} color="default"/>
-                    <div className="access-rule">Edit</div>
-                </div>
-
-                <div className="access-rule-label">
-                    <Checkbox size="small" checked={props.permissions[perm].delete} color="default" />
-                    <div className="access-rule">Del</div>
-                </div>
-
-            </div>)
+                </div>)
         }
 
     </div>)

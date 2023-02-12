@@ -1,4 +1,4 @@
-import { contact } from "./contact"
+import { Contact } from "./contact"
 
 export interface Brand {
     id:string
@@ -11,6 +11,6 @@ export interface Brand {
     street_address:string
     city:string
     country:string
-    contacts:contact[],
+    contacts:Contact[],
     website:string
  }

@@ -8,11 +8,12 @@
         display: grid;
         grid-template-rows: 78px 1fr 32px;
         @apply h-full p-2  text-sm  bg-white;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     } 
 
 
     .link-header{
-        @apply mt-6 text-base text-gray-400;
+        @apply mt-6 text-base text-gray-500;
     }
 
     ul {
@@ -25,7 +26,8 @@
     }
 
     .tech-tag{
-        font-size:0.4rem
+        font-size:0.4rem;
+        display:none
     }
     
   }

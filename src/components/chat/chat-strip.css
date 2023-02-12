@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+.chat-strip{
+    display:flex;
+    flex-direction:row-reverse;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+     /* background-color:white; */
+     /* background-color:blue; */
+     
+    
+}
+
+.chat-strip-avatar{
+    height:32px;
+    width:32px
+}
+
+.thread{
+    display:flex;
+    align-items:center;
+    width:200px;
+    /* border:1px solid #ccc; */
+    background-color:white;
+    border-radius:0px;
+    /* @apply bg-purple-700; */
+    padding:4px;
+    margin:1px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-top:none !important;
+}
+.open-thread{
+    border:1px solid orange;
+    position:relative;
+    bottom:0px;
+    top:-248px;
+    height: 300px;
+    width:300px;
+    background-color:white
+
+}
+}

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { AccessTime, Fax, Dashboard, Book, People, Store, Category, Sell, LocalMall, MoneyOff, Payment } from '@mui/icons-material';
+import ChatIcon from '@mui/icons-material/Chat';
 import "./sidebar.css"
 
 const Sidebar = () => {
@@ -15,24 +16,18 @@ const Sidebar = () => {
 
                 <ul>
                     <li><Link to="/"> <Dashboard /> DASHBOARD </Link></li>
-                    <li><Link to="/internal/roles"> <AccessTime /> ROLES</Link></li>
                     <li><Link to="/internal/teams"> <People /> TEAMS</Link></li>
+                    <li><Link to="/internal/roles"> <AccessTime /> ROLES</Link></li>
                 </ul>
-
-
-                <div className="link-header">BUSINESSES <span className="tech-tag">GraphQL</span></div>
+                <div className="link-header">CLIENTS <span className="tech-tag">Rest</span></div>
                 <ul>
                     <li><Link to="/businesses/centers"><Store />CENTERS</Link></li>
                     <li><Link to="/businesses/main-offices"><Fax />MAIN OFFICES</Link></li>
-                </ul>
-
-                <div className="link-header">FEATURES <span className="tech-tag">Rest</span></div>
-                <ul>
                     <li><Link to="/features/premiums"><Sell />PREMIUMS</Link></li>
                     <li><Link to="/features/promotions"><MoneyOff />PROMOS</Link></li>
+                    
+                    <li><Link to="subscriptions/payments"><Payment /> PAYMENTS</Link></li>
                 </ul>
-
-
                 <div className="link-header">PRESETS <span className="tech-tag">Websockets</span></div>
                 <ul>
                     <li><Link to="/products/brands"><LocalMall />BRANDS</Link></li>
@@ -40,9 +35,10 @@ const Sidebar = () => {
                 </ul>
 
 
-                <div className="link-header">SUBSCRIPTIONS <span className="tech-tag">GraphQL</span></div>
+                <div className="link-header">SUPPORT <span className="tech-tag">GraphQL</span></div>
                 <ul>
-                    <li><Link to="subscriptions/payments"><Payment /> PAYMENTS</Link></li>
+                   
+                <li><ChatIcon/> FEEDBACK</li>
 
                 </ul>
             </div>
