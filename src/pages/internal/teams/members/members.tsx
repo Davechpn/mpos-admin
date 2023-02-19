@@ -11,18 +11,14 @@ import { IconButton } from "@mui/material";
 import { doc, setDoc } from "firebase/firestore";
 import { firestore_db } from "../../../../firebase-setup/firebase";
 import MessagesContext from "../../../../context/messages.provider";
+import { Message } from "../../../../types/message";
 
 const Members = (props:any) => {
     const [openNewMember, setOpenNewMember] = useState(false);
     const navigate  = useNavigate()
-    const { openTab, setOpenTab } = useContext(MessagesContext)
-    const thread = {
-        id:"bbbb",
-        type:"task",
-        name: "Collecting shop pics",
-        avatar: "",
-        total_unread: 5
-    }
+    const { addTab } = useContext(MessagesContext)
+
+
     const viewProfile = ()=>{
         console.log('navigate to profile')
         navigate("/profile/1")
@@ -33,6 +29,30 @@ const Members = (props:any) => {
           const usersRef = doc(firestore_db, 'users', invitation.email);
           setDoc(usersRef,invitation)  
           setOpenNewMember(false)
+    }
+
+    const openInTab = (user:any)=>{
+        const tab:Message = {
+            id:user.id,
+            avatar: user.avatar,
+            sender_id:user.id,
+            sender_name:user.name,
+          
+            text:"",
+            attachments:[],
+            stars:[],
+            target:"direct",
+            target_id:user.id,
+         
+            is_send:true,
+
+            //fetch all the people following the task
+            participants:[],//members of a tasks or direct message reciver
+            unreads:[],
+        }
+
+        addTab(tab)
+
     }
 
     return (
@@ -55,7 +75,7 @@ const Members = (props:any) => {
                     <div className="invitation-item-details">
                         <div className="invitation-item-details-top">
                             <div className="invitation-item-email" ><span onClick={viewProfile}>{user.name}</span> 
-                            <TextsmsIcon fontSize="small" onClick={()=>setOpenTab(thread)}/></div>
+                            <TextsmsIcon fontSize="small" onClick={()=>openInTab(user)}/></div>
                             <div className="invitation-item-action">
                              <DeleteOutline />  
                             </div>

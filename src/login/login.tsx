@@ -28,7 +28,9 @@ const Login = () => {
                 {
                     headers: { 'content-Type': 'application/json' }
                 })
-            setAuth(response.data)
+            // setAuth(response.data)
+         
+
             navigate("/", { replace: true });
         } catch (error) {
                 console.log(error)
@@ -41,7 +43,17 @@ const Login = () => {
             console.log(results)
             //set cookies here
             cookies.set("auth_token",results.user.refreshToken)
-            setAuth(results.user)
+            // setAuth(results.user)
+            setAuth({
+                user: {
+                   id:"10",
+                   avatar: "https://pbs.twimg.com/profile_images/1507692381688238084/QL5wXFX-_400x400.jpg",
+                   name: "Dave",
+                   role_id: "1",
+                   country:"South Africa"
+                },
+                token: cookies.get("auth_token")
+             })
             navigate("/", { replace: true });
 
         }catch(err){

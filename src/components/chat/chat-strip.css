@@ -23,7 +23,7 @@
     display:flex;
     align-items:center;
     width:200px;
-    /* border:1px solid #ccc; */
+    height:48px;
     background-color:white;
     border-radius:0px;
     /* @apply bg-purple-700; */
@@ -40,7 +40,54 @@
     top:-248px;
     height: 300px;
     width:300px;
-    background-color:white
+    background-color:white;
+    display:flex;
+    flex-direction:column;
+
+  
+}
+
+.thread-header{
+    border:1px solid green;
+    width:100%;
+    cursor:pointer;
+    display:flex;
+    align-items:center
+}
+.thread-header-title{
+    width:Calc(100% - 100px);
+    border: 1px solid yellow
+}
+.thread-body{
+   flex-grow:1
+}
+.thread-message{
+   border: 1px solid gold;
+   display:flex;
+   flex-direction:column;
+   margin:8px
+   
+}
+
+.message{
+    border: 1px solid blue;
+    width:80%;
+
+}
+.message-mine{
+    border: 1px solid brown;
+    width:80%;
+    align-self:flex-end;
+
+}
+
+.thread-footer{
+    display:flex;
+    align-items:center
+}
+
+.input-text{
+    flex-grow:1
 
 }
 }

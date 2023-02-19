@@ -4,13 +4,18 @@ import { Task } from "../../../../types/team";
 import { Add } from "@mui/icons-material";
 import { firestore_db } from "../../../../firebase-setup/firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { useState } from "react";
-import NewTeam from "../new-team";
+import { useContext, useState } from "react";
 import NewTask from "./new-task";
+import MessagesContext from "../../../../context/messages.provider";
+import TextsmsIcon from '@mui/icons-material/Textsms';
+import { Message } from "../../../../types/message";
+
+
 
 const Tasks = (props: any) => {
     console.log(props)
     const [openNewTask, setOpenNewTask] = useState(false)
+    const {addTab} = useContext(MessagesContext)
 
     const all_tasks = props.tasks as Task[];
     const todo_tasks: Task[] = all_tasks.filter(t => t.stage === 'todo');
@@ -22,6 +27,30 @@ const Tasks = (props: any) => {
         const tasksRef = collection(firestore_db, 'tasks');
         addDoc(tasksRef,task)  
         setOpenNewTask(false)
+    }
+
+    const openInTab = (task:any)=>{
+        const tab:Message = {
+            id:task.id,
+            avatar: "",
+            sender_id:"",
+            sender_name:task.summary,
+          
+            text:"",
+            attachments:[],
+            stars:[],
+            target:"task",
+            target_id:task.id,
+         
+            is_send:true,
+
+            //fetch all the people following the task
+            participants:[],//members of a tasks or direct message reciver
+            unreads:[],
+        }
+
+        addTab(tab)
+
     }
 
 
@@ -42,7 +71,10 @@ const Tasks = (props: any) => {
                 </AccordionSummary>
                 <AccordionDetails>
                     {todo_tasks.map((task) =>
-                        <div key={task.date_created} className="task-bar">{task.summary}</div>
+                        <div key={task.date_created} className="task-bar">
+                            {task.summary}
+                            <TextsmsIcon fontSize="small" onClick={()=>openInTab(task)}/>
+                        </div>
                     )}
                 </AccordionDetails>
             </Accordion>

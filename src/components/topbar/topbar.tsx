@@ -1,29 +1,24 @@
 import { Notifications, Person, Email, PersonAdd, Settings, Logout } from "@mui/icons-material"
-import { MenuItem, Menu, Button, Tooltip, IconButton, Avatar, Divider, ListItemIcon } from "@mui/material"
+import { MenuItem, Menu, Button, Tooltip, IconButton, Avatar, Divider, ListItemIcon, Badge } from "@mui/material"
 import { useContext, useState } from "react"
 import AuthContext from "../../context/auth.provider"
 import MessagesContext from "../../context/messages.provider"
+import { Message } from "../../types/message"
 
 import "./topbar.css"
 
 const Topbar = () => {
   const [anchorEl1, setAnchorEl1] = useState<null | HTMLElement>(null);
   const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null);
-
-  const { setOpenTab } = useContext(MessagesContext)
+  const { addTab, setOpenTab, messages } = useContext(MessagesContext)
+  const { auth } = useContext(AuthContext)
 
 
 
   const open1 = Boolean(anchorEl1);
   const open2 = Boolean(anchorEl2);
 
-  const exampleMessage = {
-    id:"aaaa",
-    type:"task",
-    name: "Collecting shop pics",
-    avatar: "",
-    total_unread: 5
-}
+
 
   const handleClick1 = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl1(event.currentTarget);
@@ -40,8 +35,8 @@ const Topbar = () => {
     setAnchorEl2(null);
   };
 
-  const { auth } = useContext(AuthContext
-  )
+
+
 
   return (<div className="topbar-container border-black border-1 flex  h-full drop-shadow-sm">
 
@@ -56,7 +51,10 @@ const Topbar = () => {
           aria-haspopup="true"
           aria-expanded={open1 ? 'true' : undefined}
         >
-          <Email />
+
+          <Badge badgeContent={messages.length} color="primary">
+            <Email />
+          </Badge>
 
         </IconButton>
 
@@ -99,9 +97,17 @@ const Topbar = () => {
       >
         <span style={{ margin: 8 }}>Messages</span>
         <Divider />
-        <MenuItem onClick={()=>setOpenTab(exampleMessage)}>
-          <Avatar /><span style={{ fontSize: '0.8rem' }}>Message summary here to preview</span>
-        </MenuItem>
+
+        {messages.map((message: any) =>
+          <MenuItem key={message.id} onClick={() => addTab(message)}>
+            <Avatar src={message.avatar} alt={message.sender_name} />
+            <span style={{ fontSize: '0.8rem' }}>
+              {message.text}
+            </span>
+          </MenuItem>
+        )
+        }
+
 
       </Menu>
 
