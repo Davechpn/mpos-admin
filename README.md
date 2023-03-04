@@ -1,7 +1,10 @@
 
-# Getting Started
+# MPOS-ADMIN
 
-This project was bootstrapped with Create React App. Navigate to the cloned directory, 
+## Get Started
+
+This project was bootstrapped with Create React App. 
+Navigate to the cloned directory, 
 
 ### run `npm start`
 
@@ -17,7 +20,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.
 Your app is ready to be deployed!
-
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 1
 
