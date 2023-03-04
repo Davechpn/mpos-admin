@@ -17,14 +17,14 @@ const TeamsList = () => {
     const [selectedTeam, setSelectedTeam] = useState<any>(null)
     const [users,setUsers] = useState([])
     const [teams,setTeams] = useState([])
-    const [tasks,setTasks] = useState([])
+ 
 
     const [openNew, setOpenNew] = useState(false)
 
 
     const usersRef = collection(firestore_db, 'users')
     const teamsRef = collection(firestore_db, 'teams')
-    const tasksRef = collection(firestore_db, 'tasks')
+    
     
     useEffect(() => {
         const queryTeams = query(teamsRef)
@@ -47,15 +47,7 @@ const TeamsList = () => {
             console.log('users',users)
         })
 
-        const queryTasks = query(tasksRef)
-        onSnapshot(queryTasks, (snapshot) => {
-            const tasks: any[] = []
-            snapshot.forEach(d => {
-                tasks.push({ ...d.data(), id: d.id })
-            })
-            setTasks(tasks as any)
-            console.log(tasks)
-        })
+      
 
     }, [])
 
@@ -141,7 +133,7 @@ const TeamsList = () => {
             {/* For Teams ////////////////////////////////////////////// */}
             {selectedTeam && <div className="list">
              
-                <Tasks tasks={tasks} />
+                <Tasks />
             </div>}
 
             {selectedTeam && <div className="preview">

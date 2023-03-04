@@ -41,11 +41,10 @@ const Members = (props:any) => {
             text:"",
             attachments:[],
             stars:[],
-            target:"direct",
+            domain:"direct",
             target_id:user.id,
-         
             is_send:true,
-
+            task_id:null,
             //fetch all the people following the task
             participants:[],//members of a tasks or direct message reciver
             unreads:[],

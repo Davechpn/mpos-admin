@@ -1,12 +1,10 @@
 import { Tooltip, IconButton, Avatar, TextField } from "@mui/material"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import MessagesContext from "../../context/messages.provider"
-import avatar from "./avatar.jpg"
 import "./chat-strip.css"
 import SendIcon from '@mui/icons-material/Send';
-import { addDoc, collection } from "firebase/firestore"
+import { addDoc, collection, onSnapshot, query, where } from "firebase/firestore"
 import { firestore_db } from "../../firebase-setup/firebase"
-import { async } from "@firebase/util"
 import { Message } from "../../types/message"
 import { Close, HorizontalRule } from "@mui/icons-material"
 import AuthContext from "../../context/auth.provider"
@@ -18,83 +16,75 @@ import AuthContext from "../../context/auth.provider"
 
 const Chatstrip = () => {
     const { tabs, openTab, setOpenTab, removeTab } = useContext(MessagesContext);
-    const [ currentMessage, setCurrentMessage ]= useState("");
-    const { auth }   = useContext(AuthContext)
+    const [currentMessage, setCurrentMessage] = useState("");
+    const [messages, setMessages] = useState<any[]>([])
+    const { auth } = useContext(AuthContext)
 
-  
 
+    const messagesRef = collection(firestore_db, 'messages')
+    const getThreadMessages = () => {
+        //triggered every time the openTab changes
+        console.log("run get messages")
+        if(openTab){
+            const messagesQuery = query(messagesRef, where("target_id","==",openTab.target_id))
+            onSnapshot(messagesQuery, (snapshot) => {
+                const msgs: any[] = []
+                snapshot.forEach((data) => {
+                    msgs.push({
+                        ...data.data(),
+                        id: data.id,
+                        is_mine: is_Mine(data.data().sender_id)
+                    })
     
-
-    const threads = [{
-        id: "aaaa",
-        type: "task",
-        name: "Collecting shop pics",
-        avatar: "",
-        total_unread: 5
-    },
-    {
-        id: "bbbb",
-        type: "direct",
-        name: "Tari",
-        avatar: "",
-        total_unread: 5
-    },
-    {
-        id: "ccc",
-        type: "direct",
-        name: "Rue",
-        avatar: "",
-        total_unread: 5
-    }
-    ]
-
-    const messages = [
-        {
-            id: "1",
-            text: "Hi Broski is everything alright",
-            is_mine: false
-        },
-        {
-            id: "2",
-            text: "Im okay thanks",
-            is_mine: true
+                })
+                setMessages(msgs)
+            })
         }
-    ]
 
-    const handleSave = async() => {
+
+    }
+
+    useEffect(getThreadMessages, [openTab])
+
+    const is_Mine = (sender_id: string) => {
+        return auth.user.id === sender_id
+    }
+
+
+    const handleSave = async () => {
 
         //create new message object
         //get the current user_id from auth
         //
         const user = auth.user
 
-        const newMessage:Message = {
+        const newMessage: Message = {
             // avatar:"https://umbrella.data.naturalint.com/production/articles/uploads/photo/Untitleddesign403.20220526114538.jpg",
             avatar: user.avatar,
-            sender_id:user.id,
-            sender_name:user.name,
-          
-            text:currentMessage,
-            attachments:[],
-            stars:[],
-            target:openTab.target,
-            target_id:openTab.target_id,
-         
-            is_send:true,
+            sender_id: user.id,
+            sender_name: user.name,
+
+            text: currentMessage,
+            attachments: [],
+            stars: [],
+            domain: openTab.domain,
+            target_id: openTab.target_id,
+            task_id: openTab.task_id,
+            is_send: true,
 
             //fetch all the people following the task
-            participants:[],//members of a tasks or direct message reciver
-            unreads:[], //Participants subtract self id
-           
-      
+            participants: [],//members of a tasks or direct message reciver
+            unreads: [], //Participants subtract self id
+
+
 
         }
- 
+
         //send to firebase 
         console.log(newMessage)
 
-        const messagesRef = collection(firestore_db,'messages')
-        let result = await addDoc(messagesRef,newMessage)
+        const messagesRef = collection(firestore_db, 'messages')
+        let result = await addDoc(messagesRef, newMessage)
         console.log(result)
 
     }
@@ -103,7 +93,7 @@ const Chatstrip = () => {
     return (
         <div className="chat-strip">
 
-            {tabs.map((tab:Message) =>
+            {tabs.map((tab: Message) =>
                 <div key={tab.sender_name} className={`thread-contaner ${openTab?.id === tab.id ? 'open-thread' : 'thread'}`}>
 
                     <div className="thread-header" >
@@ -118,22 +108,20 @@ const Chatstrip = () => {
                         </Tooltip>
                         <div className="thread-header-title" onClick={() => setOpenTab(tab)}>{tab.sender_name}</div>
                         <div className="flex">
-                        <HorizontalRule onClick={()=>setOpenTab(null)}/>
-                        <Close onClick={()=>removeTab(tab)}/>
-                      
+                            <HorizontalRule onClick={() => setOpenTab(null)} />
+                            <Close onClick={() => removeTab(tab)} />
                         </div>
-                       
+
                     </div>
 
                     {openTab?.id === tab.id &&
                         <div className="thread-body">
-                        
-                            { messages.map((message) => 
+                            {messages.map((message) =>
                                 <div key={message.id} className="thread-message">
-                                    <div className={message.is_mine?"message-mine ":"message"}>
+                                    <div className={message.is_mine ? "message-mine " : "message"}>
                                         {message.text}
                                     </div>
-                             
+
                                 </div>
                             )
                             }
@@ -143,12 +131,12 @@ const Chatstrip = () => {
 
                     {openTab?.id === tab.id &&
                         <div className="thread-footer">
-                        
+
                             <TextField className="input-text"
-                              value={currentMessage}
-                              onChange={($event)=>setCurrentMessage($event.target.value)}
+                                value={currentMessage}
+                                onChange={($event) => setCurrentMessage($event.target.value)}
                             />
-                            
+
                             <SendIcon onClick={handleSave} />
                         </div>
                     }

@@ -6,9 +6,11 @@ export interface Message {
     text:string,
     attachments:any[],
     stars:string[],
-    target:string,
+    domain:string,
     target_id:string,
+    task_id:string | null,
     sender_id:string,
     sender_name:string,
-    is_send:boolean
+    is_send:boolean,
+    
 }

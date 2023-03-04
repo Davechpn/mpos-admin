@@ -7,61 +7,76 @@ import { Message } from "../types/message";
 const MessagesContext = createContext<any>(null);
 
 export const MessagesProvider: React.FC<any> = ({ children }) => {
-    const [messages, setMessages] = useState([])
-    const [tabs, setTabs] = useState<Message[]>([])
-    const [openTab, setOpenTab] = useState<Message | null>(null)
+   const [messages, setMessages] = useState([])
+   const [taskMessages, setTaskMessages] = useState<any[]>([])
+   const [tabs, setTabs] = useState<Message[]>([])
+   const [openTab, setOpenTab] = useState<Message | null>(null)
 
-    const messagesRef = collection(firestore_db,"messages")
+   const messagesRef = collection(firestore_db, "messages")
 
-    useEffect(()=>{
-         const messagesQuery = query(messagesRef)
-         onSnapshot(messagesQuery,(snapshot)=>{
-            const messages: any[] = []
-            snapshot.forEach(d => {
-                messages.push({ ...d.data(), id: d.id })
-            })
-            console.log('messages',messages)
-            setMessages(messages as any)
+   useEffect(() => {
+      const messagesQuery = query(messagesRef)
+      onSnapshot(messagesQuery, (snapshot) => {
+         const messages: any[] = []
+         const task_messages:any[] = []
+         snapshot.forEach(data => {
+            let message:any = { ...data.data(), id: data.id }
+            message.domain === "task" && task_messages.push(message)
+            messages.push(message)
+
          })
-    },[])
+         setMessages(messages as any)
+         setTaskMessages(task_messages)
+      })
+   }, [])
 
-    const addTab = (tab:Message)=>{
+   const addTab = (tab: Message) => {
 
       let exists = false;
-      if(tab.target === "task"){
-         exists = tabs.some(t=>t.target_id === tab.target_id)
+
+      if (tab.domain === "direct") {
+         exists = tabs.some(t => t.sender_id === tab.sender_id)
+      } else {
+         exists = tabs.some(t => t.target_id === tab.target_id)
       }
-      if(tab.target === "direct"){
-         exists = tabs.some(t=>t.sender_id === tab.sender_id)
-      }
-     
-     
-      if(!exists){
-         if(tabs.length === 2){
-            let requiredTabs = tabs.splice(0,1)
-            setTabs([...requiredTabs,tab])
-         }else{
-            setTabs([...tabs,tab])
+
+
+      if (!exists) {
+         if (tabs.length === 3) {
+            let requiredTabs = tabs
+            requiredTabs.shift()
+            setTabs([...requiredTabs, tab])
+         } else {
+            setTabs([...tabs, tab])
          }
-         
+
       }
       setOpenTab(tab)
-  
-    }
 
-    const removeTab = (tab:any) => {
-       console.log('removing tab',tab)
-       const requiredTabs = tabs.filter((t)=>t.id !== tab.id)
-       setTabs(requiredTabs)
-     
-    }
- 
-    return (
-       <MessagesContext.Provider value={{ openTab, setOpenTab, messages, tabs, addTab, removeTab}}>
-          {children}
-       </MessagesContext.Provider>
-    )
- 
- }
- 
- export default MessagesContext
+   }
+
+   const removeTab = (tab: any) => {
+      console.log('removing tab', tab)
+      const requiredTabs = tabs.filter((t) => t.id !== tab.id)
+      setTabs(requiredTabs)
+
+   }
+
+   return (
+      <MessagesContext.Provider value={{
+         openTab,
+         setOpenTab,
+         messages,
+         tabs,
+         addTab,
+         removeTab,
+         taskMessages
+
+      }}>
+         {children}
+      </MessagesContext.Provider>
+   )
+
+}
+
+export default MessagesContext
