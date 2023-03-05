@@ -46,8 +46,10 @@ Each component is designed to contain all crud of what it represents
 14. Attach tasks with messages on any content
 
 ### Next todos
-
-Add backend on AWS using python and prostgres
+- Add memmber remove from the role or team
+- Add filtering already joined members in the invite dropdown
+- Add Delete role or team
+- Add backend on AWS using python and prostgres
 
 ### Current Notes
 
