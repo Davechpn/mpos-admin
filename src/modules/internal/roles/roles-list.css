@@ -1,0 +1,47 @@
+.roles-list-page{
+    grid-template-areas:
+    "header header header actions"
+    "filter invitations invitations access-rules"
+    "filter invitations invitations access-rules"
+    "filter invitations invitations access-rules"
+    "filter invitations invitations access-rules"
+}
+
+
+.access-rules{
+grid-area : access-rules;
+/* border:1px solid green; */
+height:100%;
+margin-left:16px
+}
+
+.invitations{
+    grid-area:invitations;
+
+}
+
+.desc{
+    grid-area:desc;
+    font-size:0.8rem;
+}
+
+
+.role-item{
+    display:flex;
+    align-item:center;
+    margin-top:6px;
+    border-bottom: 1px solid #ddd;
+    cursor:pointer;
+    font-size:0.8rem
+}
+
+.role-item-label{
+    flex-grow:1;
+    padding:2px;
+    font-size:0.85rem
+}
+
+.role-item-actions{
+    display:flex;
+    align-items:center
+}

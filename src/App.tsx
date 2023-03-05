@@ -1,9 +1,9 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Layout from './layout/layout';
-import Login from './login/login';
+import Layout from './landing/layout/layout';
+import Login from './landing/login/login';
 import { useContext } from 'react';
-import AuthContext from './context/auth.provider';
+import AuthContext from './contexts/auth.provider';
 
 
 

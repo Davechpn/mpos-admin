@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
-import { AuthProvider } from './context/auth.provider';
-import { MessagesProvider } from './context/messages.provider';
+import { AuthProvider } from './contexts/auth.provider';
+import { MessagesProvider } from './contexts/messages.provider';
 
 
 const root = ReactDOM.createRoot(
