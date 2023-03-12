@@ -3,11 +3,12 @@ import AuthContext from "../../contexts/auth.provider"
 import axios from '../../api/axios'
 import { Button, TextField } from "@mui/material"
 import { useNavigate } from "react-router-dom"
-import {auth, provider} from "../../firebase";
+import { auth, firestore_db, provider } from "../../firebase";
 import { signInWithPopup } from "firebase/auth"
 import Cookie from 'universal-cookie'
 
 import './login.css'
+import { doc, getDoc } from "firebase/firestore"
 
 const LOGIN_URL = '/token'
 const cookies = new Cookie()
@@ -28,38 +29,67 @@ const Login = () => {
                 {
                     headers: { 'content-Type': 'application/json' }
                 })
-            // setAuth(response.data)
-         
+            
+
 
             navigate("/", { replace: true });
         } catch (error) {
-                console.log(error)
+            console.log(error)
         }
     }
 
-    const signInWithGoogle = async() =>{
-        try{
-            const results = await signInWithPopup(auth,provider)
-            console.log(results)
-            //set cookies here
-            cookies.set("auth_token",results.user.refreshToken)
-            // setAuth(results.user)
-            setAuth({
-                user: {
-                   id:"10",
-                   avatar: "https://pbs.twimg.com/profile_images/1507692381688238084/QL5wXFX-_400x400.jpg",
-                   name: "Dave",
-                   role_id: "1",
-                   country:"South Africa"
-                },
-                token: cookies.get("auth_token")
-             })
-            navigate("/", { replace: true });
+    const continueNext = (email: any, avatar: any, token: any) => {
+        //get the db user
+        const userRef = doc(firestore_db, `users/${email}`)
+        getDoc(userRef).then((db_user) => {
 
-        }catch(err){
+            let dbUser: any = { ...db_user.data(), id: db_user.id, avatar }
+            console.log('ther', db_user.data())
+       
+
+            if (db_user.data()) {
+                if (dbUser.suspendend_date) {
+                    navigate("/suspended", { replace: true });
+                }
+                if (!dbUser.contact) {                   
+                    navigate(`/setup/${dbUser.verification_code}`, { replace: true });
+                }
+                if (dbUser.contact && !dbUser.suspendend_date) {
+                    setAuth({
+                        user: dbUser,
+                        token: token
+                    })
+                    navigate("/", { replace: true });
+                }
+
+            } else {
+                navigate("/unauthorized", { replace: true });
+            }
+
+        })
+
+    }
+
+    const signInWithGoogle = async () => {
+        try {
+            const results = await signInWithPopup(auth, provider)
+            console.log('gmail user', results)
+            //set cookies here
+            // setAuth(results.user)
+            let email = results.user.email
+            let avatar = results.user.photoURL
+            let token = results.user.refreshToken
+
+            cookies.set("auth_token", results.user.refreshToken);
+
+
+            continueNext(email, avatar, token)
+
+
+        } catch (err) {
             console.error(err)
         }
-   
+
     }
 
     return (<div className="login-container">

@@ -32,19 +32,8 @@ export default function NewUser(props: any) {
 
 
   useEffect(() => {
-    setIsLoading(true)
-    const queryUsers = query(usersRef, orderBy('name'));
-
-    onSnapshot(queryUsers, (snapshot) => {
-      const users: any[] = []
-      snapshot.forEach(d => {
-        users.push({ name: d.data().name, id: d.id })
-      })
-      setUsers(users as any)
-      setIsLoading(false)
-      setIsEmpty(users.length === 0)
-    })
-  }, [])
+    setUsers(props.nonMembers)
+  }, [props])
 
 
   const createDbUser = () => {
@@ -65,7 +54,13 @@ export default function NewUser(props: any) {
           console.warn('User exist update only domains')
           let updates = domain.space === 'role'? {role_id:domain.id} : {teams:[...user.teams, domain.id]}
           console.log('updates',updates)
-          updateDoc(userRef,updates)
+          updateDoc(userRef,updates).then(x=> {
+            setNewUser({
+              name: '',
+              id: '',
+            });
+            setIsLoading(false)
+          })
         }
 
       } else {
@@ -100,7 +95,6 @@ export default function NewUser(props: any) {
   }
 
   const handleClose = () => {
-    //clear dialogbox values
     setDialogValue({
       name: '',
       id: '',
