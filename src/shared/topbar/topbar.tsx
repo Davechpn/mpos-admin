@@ -4,6 +4,7 @@ import { useContext, useState } from "react"
 import AuthContext from "../../contexts/auth.provider"
 import MessagesContext from "../../contexts/messages.provider"
 import { Message } from "../../types/message"
+import { auth as fireAuth } from "../../firebase"
 
 import "./topbar.css"
 
@@ -132,7 +133,7 @@ const Topbar = () => {
           aria-haspopup="true"
           aria-expanded={open2 ? 'true' : undefined}
         >
-          <Avatar sx={{ width: 32, height: 32 }}>{auth?.user?.name.substring(0, 1)}</Avatar>
+          <Avatar sx={{ width: 32, height: 32 }}>{auth?.user?.name?.substring(0, 1)}</Avatar>
         </IconButton>
       </Tooltip>
 
@@ -191,7 +192,7 @@ const Topbar = () => {
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={()=>{fireAuth.signOut()}}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
