@@ -5,7 +5,7 @@ import PageHeader from "../../../../shared/header/header"
 import { useForm } from 'react-hook-form';
 import { gql, useMutation } from '@apollo/client';
 import Cropper from 'react-easy-crop'
-import "./brand-new.css"
+import "./brand-template-new.css"
 import { useCallback, useState } from "react";
 
 
@@ -20,7 +20,7 @@ const ADD_BRAND = gql`
 `;
 
 
-const BrandNew = () => {
+const BrandTemplateNew = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const [crop, setCrop] = useState({ x: 0, y: 0 })
@@ -136,6 +136,6 @@ const BrandNew = () => {
     )
 }
 
-export default BrandNew
+export default BrandTemplateNew
 
 

@@ -28,15 +28,21 @@ const Sidebar = () => {
                 <ul>
                     {permissions?.centers.isViewer && <li><Link to="/businesses/centers"><Store />CENTERS</Link></li>}
                     {permissions?.offices.isViewer && <li><Link to="/businesses/main-offices"><Fax />MAIN OFFICES</Link></li>}
+
+                </ul>
+                <div className="link-header">FEATURES <span className="tech-tag">Websockets</span></div>
+                <ul>
                     {permissions?.premiums.isViewer && <li><Link to="/features/premiums"><Sell />PREMIUMS</Link></li>}
                     {permissions?.promos.isViewer && <li><Link to="/features/promotions"><MoneyOff />PROMOS</Link></li>}
                     {permissions?.payments.isViewer && <li><Link to="subscriptions/payments"><Payment /> PAYMENTS</Link></li>}
                 </ul>
-                <div className="link-header">PRESETS <span className="tech-tag">Websockets</span></div>
+                <div className="link-header">TEMPLATES <span className="tech-tag">Websockets</span></div>
                 <ul>
-                    {permissions?.brands.isViewer && <li><Link to="/products/brands"><LocalMall />BRANDS</Link></li>}
+                    {permissions?.brands.isViewer && <li><Link to="/templates/brands-templates"><LocalMall />BRANDS</Link></li>}
                     {permissions?.categories.isViewer && <li><Link to="/products/categories"><Category />CATEGORIES</Link></li>}
                 </ul>
+
+
 
 
                 <div className="link-header">SUPPORT <span className="tech-tag">GraphQL</span></div>

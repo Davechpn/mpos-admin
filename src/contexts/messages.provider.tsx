@@ -15,7 +15,6 @@ export const MessagesProvider: React.FC<any> = ({ children }) => {
    const messagesRef = collection(firestore_db, "messages")
 
    useEffect(() => {
-      console.log("eerrttttttt")
       const messagesQuery = query(messagesRef)
       onSnapshot(messagesQuery, (snapshot) => {
          const messages: any[] = []
