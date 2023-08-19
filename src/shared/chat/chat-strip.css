@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+.chat-strip{
+    display:flex;
+    flex-direction:row-reverse;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+     /* background-color:white; */
+     /* background-color:blue; */
+     
+    
+}
+
+.chat-strip-avatar{
+    height:32px;
+    width:32px
+}
+
+.thread{
+    display:flex;
+    align-items:center;
+    width:200px;
+    height:48px;
+    background-color:white;
+    border-radius:0px;
+    /* @apply bg-purple-700; */
+    padding:4px;
+    margin:1px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-top:none !important;
+}
+.open-thread{
+    border:1px solid orange;
+    position:relative;
+    bottom:0px;
+    top:-248px;
+    height: 300px;
+    width:300px;
+    background-color:white;
+    display:flex;
+    flex-direction:column;
+
+  
+}
+
+.thread-header{
+    border:1px solid green;
+    width:100%;
+    cursor:pointer;
+    display:flex;
+    align-items:center
+}
+.thread-header-title{
+    width:Calc(100% - 100px);
+    border: 1px solid yellow
+}
+.thread-body{
+   flex-grow:1
+}
+.thread-message{
+   border: 1px solid gold;
+   display:flex;
+   flex-direction:column;
+   margin:8px
+   
+}
+
+.message{
+    border: 1px solid blue;
+    width:80%;
+
+}
+.message-mine{
+    border: 1px solid brown;
+    width:80%;
+    align-self:flex-end;
+
+}
+
+.thread-footer{
+    display:flex;
+    align-items:center
+}
+
+.input-text{
+    flex-grow:1
+
+}
+}

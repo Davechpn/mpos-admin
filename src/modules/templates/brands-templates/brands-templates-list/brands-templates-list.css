@@ -1,0 +1,15 @@
+.brands-list-page{
+    grid-template-areas:
+    "header search search actions"
+    "list list prev prev"
+    "list list prev prev"
+    "list list prev prev"
+    "list list prev prev"
+}
+
+.prev{
+    grid-area: prev;
+    border : 1px solid red;
+    height: 100%
+}
+

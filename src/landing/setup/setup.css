@@ -1,0 +1,14 @@
+.setup-page{
+   border: 1px solid red;
+   width: 100%;
+   height: 99vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.setup-container{
+    width: 360px;
+
+}
