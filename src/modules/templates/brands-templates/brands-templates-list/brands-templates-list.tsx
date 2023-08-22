@@ -12,6 +12,7 @@ import "./brands-templates-list.css"
 import { Box, Tab, Tabs } from "@mui/material"
 import BrandTemplateDetails from "../brand-template-details/brand-template-details"
 import { completedTemplatesColumns, draftTemplatesColumns, editionTemplatesColumns, fromClientTemplatesColumns, unModeratedTemplatesColumns } from "./column-definitions"
+import BrandTemplateNew from "../brand-template-new/brand-template-new"
 
 
 const brands = brand_list
@@ -70,7 +71,7 @@ const BrandsTemplatesList = () => {
                   <Tab label="Drafts" {...a11yProps(0)} />
                   <Tab label="UnModerated" {...a11yProps(1)} />
                   <Tab label="Completed" {...a11yProps(2)} />
-                  <Tab label="From Client" {...a11yProps(3)} />
+                  <Tab label="Clients'" {...a11yProps(3)} />
                   <Tab label="Editions" {...a11yProps(4)} />
                </Tabs>
             </Box>
@@ -121,7 +122,8 @@ const BrandsTemplatesList = () => {
          </div>
 
          <div className="prev">
-            {selected && <BrandTemplateDetails brand={selected} actions={value} />}
+            {/* {selected && <BrandTemplateDetails brand={selected} actions={value} />} */}
+            {BrandTemplateNew()}
          </div>
 
 

@@ -4,6 +4,7 @@ export const brand_list: BrandTemplate[] = [
     {
         id: '1',
         name: 'Cerevita',
+        description:'',
         tags: [],
         image: {
             url: 'https://www.capital30.co.za/182-large_default/nestle-cerevita-corn-and-wheat-500g.jpg',
@@ -14,16 +15,16 @@ export const brand_list: BrandTemplate[] = [
         threeD_image: null,
         video: "",
         sizes: ['500g'],
-        custom_size_units: [],
+        units: [],
         category: 'Cereal',
-        extras_categories:['toppings'],
+        addon_categories:['toppings'],
         varieties: ['Corn and wheat', 'Corn and banana'],
         manufacturer: 'Nestlé Zimbabwe (Private) Limited',
         street_address: '38 Samora Machel Avenue',
         city: 'Harare',
         country: 'Zimbabwe',
         email: 'consumer.services@zw.nestle.com',
-        tel: [{name: 'Consumer Services',number: '+263 242 702 393-7'}],
+        tel_numbers: [{name: 'Consumer Services',number: '+263 242 702 393-7'}],
         website: '+263 242 702 393-7',
         draft_notes:"draft notes",
         client_edits: [],
@@ -46,6 +47,7 @@ export const brand_list: BrandTemplate[] = [
     }, {
         id: '2',
         name: 'Mazoe',
+        description:'',
         tags: [],
         image: {
             url: 'https://shop.schweppes.co.zw/221-large_default/mazoe-orange-crush-2-litre-x-6.jpg',
@@ -56,16 +58,16 @@ export const brand_list: BrandTemplate[] = [
         video: '',
         threeD_image: null,
         sizes: ['1L', '2L'],
-        custom_size_units: [],
+        units: [],
         category: 'Beverage',
-        extras_categories:['toppings'],
+        addon_categories:['toppings'],
         varieties: ['Orange crush', 'Blackberrry'],
         manufacturer: 'Schweppes',
         street_address: '67a Woolwich Road, Willovale',
         city: 'Harare',
         country: 'Zimbabwe',
         email: 'feedback@schweppes.co.zw',
-        tel: [
+        tel_numbers: [
             { name: 'Head Office', number: '+2638688002173' },
             { name: 'Harare Beverage Centre', number: '+263 242 620232', }
         ],

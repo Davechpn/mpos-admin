@@ -32,21 +32,22 @@ export interface Tel {
 export interface BrandTemplate {
     id: string
     name: string
+    description:string
     tags: string[]
     image: image
     threeD_image?: image | null,
     video: string,
     sizes: string[]
-    custom_size_units: string[]
+    units: string[]
     category: string
-    extras_categories:string[]
+    addon_categories:string[]
     varieties: string[]
     manufacturer: string
     street_address: string
     city: string
     country: string
     email: string,
-    tel:Tel[],
+    tel_numbers:Tel[],
     website: string,
     draft_notes:string,
     created_by: number

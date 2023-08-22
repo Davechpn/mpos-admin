@@ -1,10 +1,10 @@
 .brands-list-page{
     grid-template-areas:
     "header search search actions"
-    "list list prev prev"
-    "list list prev prev"
-    "list list prev prev"
-    "list list prev prev"
+    "list prev prev prev"
+    "list prev prev prev"
+    "list prev prev prev"
+    "list prev prev prev"
 }
 
 .prev{

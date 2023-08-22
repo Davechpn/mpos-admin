@@ -65,7 +65,7 @@ const BrandTemplateDetails = (props: any) => {
                     <div className="detail-name">Tel</div>
                     <div className="detail-value values-group">
                         {
-                            brand.tel.map((tel) => {
+                            brand.tel_numbers.map((tel) => {
                                 return <div key={tel.number} className="values-group-item">{tel.number}</div>
                             })
                         }

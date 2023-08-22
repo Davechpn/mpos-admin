@@ -1,21 +1,115 @@
-.brand-new-page{
+.brand-new-page {
     grid-template-areas:
-    "header header header actions"
-    "upload list list instructions"
-    "upload list list instructions"
-    "upload list list instructions"
-    "upload list list instructions"
+        "header header header actions"
+        "upload list list instructions"
+        "upload list list instructions"
+        "upload list list instructions"
+        "upload list list instructions"
 }
 
-.upload{
-    grid-area:upload
+.upload {
+    grid-area: upload
 }
 
-.instructions{
-    grid-area:instructions
+.instructions {
+    grid-area: instructions
 }
-.form{
-    display:flex;
-    flex-direction:column
 
+.newform-container {
+    border:3px solid green;
+    display: flex;
+    max-height: 100%;
+    height: 100%;
+}
+
+.upload-section {
+    height: 275px;
+    flex-grow: 1;
+    background-color: grey;
+}
+
+.newform-pane {
+    border: 1px solid fuchsia;
+    flex-grow: 1;
+
+
+}
+
+.top-form-section{
+    border:2px solid goldenrod;
+    display: flex; 
+    
+}
+
+
+
+.form-section {
+    /* padding-left: 8px; */
+    border: 3px solid lightgreen;
+    flex-grow: 1;
+  
+}
+
+.side-form-section{
+    width: 160px;
+    padding-left: 8px;
+}
+
+
+.fields-pane {
+    border: 1px solid rebeccapurple;
+    width: 344px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+    padding-right: 8px;
+
+}
+
+.double-field-item {
+    margin-bottom: 4px;
+    border: 1px solid royalblue;
+    display: flex;
+    justify-content: stretch;
+}
+
+.array-items-container {
+    border: 2px solid rebeccapurple;
+    margin-bottom: 8px;
+    height: 64px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tel-items-container {
+    border: 2px solid teal;
+    margin-bottom: 8px;
+    height: 56px;
+}
+
+.array-items-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.array-item {
+    background-color: bisque;
+}
+
+
+.array-item-input{
+    max-width: 160px !important;
+    border-color: aqua !important;
+}
+
+.array-item-add{
+    border: 1px solid grey;
+    color: white;
+    background-color: gray;
+    height: 24px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.tel-item-label{
+    display: flex;
 }
