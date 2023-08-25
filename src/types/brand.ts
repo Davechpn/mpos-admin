@@ -29,14 +29,15 @@ export interface ClientEdit {
     approved: boolean,
     approved_time: number,
     approved_by: string,
-    moderated: boolean,
-    moderated_by: string,
-    moderation_date: number
+    reviewed: boolean,
+    reviewed_by: string,
+    review_date: number
 }
 
 export interface ClientRating {
     client_id: number,
     rating: number,
+    good_implematation:boolean,
     comment: string
 }
 

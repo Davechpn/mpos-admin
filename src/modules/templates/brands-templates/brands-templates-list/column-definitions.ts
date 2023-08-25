@@ -57,11 +57,16 @@ export const completedTemplatesColumns: GridColDef[] = [{
     field: "reviewer",
     headerName: "Reviewer",
     width: 150
-}
-    ,
+},
 {
     field: "date",
     headerName: "Date",
+    width: 150
+}
+,
+{
+    field: "Implemantation",
+    headerName: "Implemantation",
     width: 150
 }
 ]

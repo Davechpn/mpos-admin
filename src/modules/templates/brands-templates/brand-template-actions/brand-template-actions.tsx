@@ -1,10 +1,9 @@
 import { BrandTemplate } from "../../../../types/brand"
 import CompletedTempleteActions from "./completed-template-actions/completed-template-actions"
 import DraftTemplateActions from "./draft-template-actions/draft-template-actions"
-import EditionTemplateActions from "./edition-template-actions/editon-template-actions"
-import FromClientTemplateActions from "./from-client-template-actions/from-client-template-actions"
-import UnModeratedTemplateActions from "./unmoderated-template-actions/unmoderated-template-actions"
+
 import "./brand-template-actions.css"
+import InReviewTemplateActions from "./inreview-template-actions/inreview-template-actions"
 
 const BrandTemplateActions = (props: any) => {
     const brandTemplate: BrandTemplate = props?.template
@@ -119,10 +118,8 @@ const BrandTemplateActions = (props: any) => {
             <div className="details-pane actions-pane">
                 {[
                     DraftTemplateActions(),
-                    UnModeratedTemplateActions(),
-                    CompletedTempleteActions(),
-                    FromClientTemplateActions(),
-                    EditionTemplateActions()
+                    InReviewTemplateActions(),
+                    CompletedTempleteActions()
                 ][actionsIndex]}
             </div>
 
