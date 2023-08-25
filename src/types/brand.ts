@@ -5,6 +5,21 @@ export interface image {
     is_transparent: boolean
 }
 
+export const enum DraftType{
+    FromClient ="From client",
+    InProgress="In progress",
+    Rejected="Rejected",
+    Review="Review",
+    ClientEdits="Client edits"
+}
+
+export const enum DarftSources{
+    Client ="Client",
+    Mine="Mine",
+    Reviewer="Reviewer",
+    Admin="Admin"
+}
+
 export interface ClientEdit {
     client_id: number,
     action: string,
@@ -50,12 +65,13 @@ export interface BrandTemplate {
     tel_numbers:Tel[],
     website: string,
     draft_notes:string,
+    draft_type:string //eg review, image adjustment, rejected, new from client, client Edition
     created_by: number
     created_date: number
-    is_moderated: boolean
-    moderation_date: number
-    moderator_notes:string
-    moderator_id:number
+    review_date: number
+    review_notes:string
+    reviewer_id:number
+    in_review:boolean
     is_approved: boolean
     last_modified: number
     client_edits: ClientEdit[],

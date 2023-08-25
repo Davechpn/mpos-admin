@@ -1,0 +1,91 @@
+.details-container{
+    display: flex;
+    border:4px solid teal;
+    height: 100%;
+   
+}
+.details-pane{
+    border: 1px solid purple;
+    padding: 8px;
+}
+
+.actions-pane{
+    /* flex-grow: 1; */
+    border: 1px solid rebeccapurple;
+    width: 344px;
+}
+
+.image-container{
+    border: 1px solid red;
+    height: 220px;
+    width: 220px;
+    padding: 8px;
+    background-color: grey;
+}
+
+.brandtemplate-image{
+    height: 100%;
+    object-fit: contain;
+}
+
+.detail-item{
+     border: 1px solid thistle;
+     display: flex;
+     font-size: 0.9rem;
+}
+
+.detail-name{
+      border: 1px solid lime;
+      width: 100px;
+}
+
+.detail-value{
+  padding-left: 8px;
+}
+
+.values-group{
+   display: flex;
+}
+
+.values-group-item{
+   background-color: #ccc;
+   margin: 2px;
+   border-radius: 2px;
+   padding-left: 4px;
+   padding-right: 4px;
+   height: 22px;
+}
+
+.template-actions-container{
+    border: 2px solid red;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.template-actions-header{
+    border: 2px solid green;
+    
+}
+.template-actions-body{
+    border: 2px solid hotpink;
+    flex-grow: 1;
+    
+}
+.template-actions-footer{
+    border: 2px solid lightblue;
+
+}
+
+.actions-footer-buttons-section{
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid firebrick;
+}
+
+.actions-instructions-section{
+  padding: 8px;
+}
+
+.actions-instructions{
+    font-size: 0.9rem;
+  }

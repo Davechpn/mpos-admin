@@ -4,7 +4,7 @@ export const brand_list: BrandTemplate[] = [
     {
         id: '1',
         name: 'Cerevita',
-        description:'',
+        description:'Cereal',
         tags: [],
         image: {
             url: 'https://www.capital30.co.za/182-large_default/nestle-cerevita-corn-and-wheat-500g.jpg',
@@ -28,10 +28,9 @@ export const brand_list: BrandTemplate[] = [
         website: '+263 242 702 393-7',
         draft_notes:"draft notes",
         client_edits: [],
-        is_moderated: false,
-        moderation_date: 12345,
-        moderator_notes:"moderation notes example",
-        moderator_id:1,
+        review_date: 12345,
+        review_notes:"review notes example",
+        reviewer_id:1,
         is_approved: false,
         created_by: 1,
         created_date: 12345,
@@ -43,11 +42,14 @@ export const brand_list: BrandTemplate[] = [
         has_zero_deposit_order: false,
         has_transparency_all: false,
         is_not_for_under_18: false,
-        is_dirty: true
+        is_dirty: true,
+        in_review:false,
+        draft_type:''
+
     }, {
         id: '2',
         name: 'Mazoe',
-        description:'',
+        description:'Juice',
         tags: [],
         image: {
             url: 'https://shop.schweppes.co.zw/221-large_default/mazoe-orange-crush-2-litre-x-6.jpg',
@@ -74,10 +76,9 @@ export const brand_list: BrandTemplate[] = [
         website: 'https://shop.schweppes.co.zw/',
         draft_notes:"draft notes",
         client_edits: [],
-        is_moderated: false,
-        moderation_date: 12345,
-        moderator_notes:"moderation notes example",
-        moderator_id:1,
+        review_date: 12345,
+        review_notes:"reviewer notes example",
+        reviewer_id:1,
         is_approved: false,
         created_by: 1,
         created_date: 12345,
@@ -89,7 +90,8 @@ export const brand_list: BrandTemplate[] = [
         has_zero_deposit_order: false,
         has_transparency_all: false,
         is_not_for_under_18: false,
-        is_dirty: true
-
+        is_dirty: true,
+        in_review:false,
+        draft_type:''
     }
 ]

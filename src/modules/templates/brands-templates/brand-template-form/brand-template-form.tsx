@@ -2,7 +2,7 @@ import { Button, Icon, TextField } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { useForm, useFieldArray } from 'react-hook-form';
 import Cropper from 'react-easy-crop'
-import "./brand-template-new.css"
+import "./brand-template-form.css"
 import { useCallback, useState } from "react";
 import { DevTool } from "@hookform/devtools";
 import * as yup from "yup";
@@ -28,7 +28,9 @@ const schema = yup.object({
     tel_numbers: yup.array()
 })
 
-const BrandTemplateNew = () => {
+const BrandTemplateForm = (props:any) => {
+    console.log(props);
+
     const { register, handleSubmit, control, formState } = useForm({
         defaultValues: {
             sizes: ['']
@@ -254,7 +256,7 @@ const BrandTemplateNew = () => {
 
                     </div>
                     <div className="form-actions">
-                        <button type="submit">Submit</button>,   save as draft
+                        <button type="submit">Submit</button>,   save as draft, reset
                     </div>
 
                 </div>
@@ -266,6 +268,6 @@ const BrandTemplateNew = () => {
     )
 }
 
-export default BrandTemplateNew
+export default BrandTemplateForm
 
 

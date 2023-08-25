@@ -15,7 +15,7 @@ import Guide from "../../modules/subscriptions/guidelines/guide"
 import PaymentsList from "../../modules/subscriptions/payments/payments-list"
 import "./layout.css"
 import CategoriesList from "../../modules/templates/categories-templates/categories-list"
-import BrandTemplateNew from "../../modules/templates/brands-templates/brand-template-new/brand-template-new"
+import BrandTemplateNew from "../../modules/templates/brands-templates/brand-template-form/brand-template-form"
 import BrandsTemplatesList from "../../modules/templates/brands-templates/brands-templates-list/brands-templates-list"
 
 
