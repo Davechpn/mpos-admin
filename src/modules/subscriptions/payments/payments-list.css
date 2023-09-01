@@ -1,8 +1,0 @@
-.payments-list-page{
-    grid-template-areas:
-    "header header header actions"
-    "filter list list preview"
-    "filter list list preview"
-    "filter list list preview"
-    "filter paginator paginator paginator"
-}

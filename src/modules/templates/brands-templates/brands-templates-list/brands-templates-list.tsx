@@ -11,20 +11,16 @@ import { brand_list } from "../../../../fake-db/brands"
 import "./brands-templates-list.css"
 import { Box, Tab, Tabs } from "@mui/material"
 
-import { completedTemplatesColumns, draftTemplatesColumns,unModeratedTemplatesColumns } from "./column-definitions"
+import { completedTemplatesColumns, draftTemplatesColumns,unModeratedTemplatesColumns } from "./templates-column-definitions"
 import { BrandTemplate } from "../../../../types/brand"
 import BrandTemplateActions from "../brand-template-actions/brand-template-actions"
 import BrandTemplateForm from "../brand-template-form/brand-template-form"
+import { SidePaneView } from "../../../../types/layout"
 
 
 
 const brands = brand_list
 
-const enum SidePaneView {
-   New = 'new',
-   Actions = 'actions',
-   Edit = 'edit'
-}
 
 
 const BrandsTemplatesList = () => {

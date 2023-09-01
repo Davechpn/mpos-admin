@@ -1,4 +1,5 @@
-import PageHeader from "../../../shared/header/header"
+
+import PageHeader from "../../../../shared/header/header"
 import "./promotions-list.css"
 
 const PromotionsList = () => {

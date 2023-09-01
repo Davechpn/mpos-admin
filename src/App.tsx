@@ -16,18 +16,27 @@ function App() {
 
   return (
     <>
-      {auth &&
+      {/* {auth &&
         <Routes>
           <Route path="*" element={<Layout />} ></Route>
           <Route path="/setup/:code" element={<Setup />} />
           <Route path="/suspended" element={<Suspended />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
         </Routes>
-      }
+      } */}
+
+      
+        <Routes>
+          <Route path="*" element={<Layout />} ></Route>
+          <Route path="/setup/:code" element={<Setup />} />
+          <Route path="/suspended" element={<Suspended />} />
+          <Route path="/unauthorized" element={<Unauthorized />} />
+        </Routes>
+    
 
       
 
-      {!auth && <Login />}
+      {/* {!auth && <Login />} */}
     </>
 
   );

@@ -28,7 +28,7 @@ export const brand_list: BrandTemplate[] = [
         website: '+263 242 702 393-7',
         draft_notes:"draft notes",
         client_edits: [],
-        review_date: 12345,
+        reviewed_at: 12345,
         review_notes:"review notes example",
         reviewer_id:1,
         is_approved: false,
@@ -44,7 +44,8 @@ export const brand_list: BrandTemplate[] = [
         is_not_for_under_18: false,
         is_dirty: true,
         in_review:false,
-        draft_type:''
+        draft_type:'',
+        draft_created_at:0
 
     }, {
         id: '2',
@@ -76,7 +77,7 @@ export const brand_list: BrandTemplate[] = [
         website: 'https://shop.schweppes.co.zw/',
         draft_notes:"draft notes",
         client_edits: [],
-        review_date: 12345,
+        reviewed_at: 12345,
         review_notes:"reviewer notes example",
         reviewer_id:1,
         is_approved: false,
@@ -92,6 +93,7 @@ export const brand_list: BrandTemplate[] = [
         is_not_for_under_18: false,
         is_dirty: true,
         in_review:false,
-        draft_type:''
+        draft_type:'',
+        draft_created_at:0
     }
 ]

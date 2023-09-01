@@ -66,10 +66,11 @@ export interface BrandTemplate {
     tel_numbers:Tel[],
     website: string,
     draft_notes:string,
-    draft_type:string //eg review, image adjustment, rejected, new from client, client Edition
+    draft_type:string, //eg review, image adjustment, rejected, new from client, client Edition
+    draft_created_at:number,
     created_by: number
     created_date: number
-    review_date: number
+    reviewed_at: number
     review_notes:string
     reviewer_id:number
     in_review:boolean

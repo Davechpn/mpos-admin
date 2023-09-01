@@ -1,0 +1,25 @@
+.premiums-list-page{
+    grid-template-areas:
+    "header header header actions"
+    "list list prev prev"
+    "list list prev prev"
+    "list list prev prev"
+    "list list prev prev"
+}
+
+
+.prev{
+    grid-area: prev;
+    border : 1px solid red;
+    height: 100%;
+    min-width: 740px;
+}
+
+.premiums-form-container{
+    display: flex;
+    flex-direction: column;
+    border:2px solid turquoise;
+    height: 100%;
+    max-width: 300px;
+    padding: 8px;
+}
