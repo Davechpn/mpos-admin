@@ -11,7 +11,7 @@ const columns: GridColDef[] = [{
   headerName: 'Name',
   width: 150
 }, {
-  field: "street_address",
+  field: "streetAddress",
   headerName: 'Street ad',
   width: 150
 },
@@ -41,14 +41,14 @@ query getCenters{
 const CentersList = () => {
   const [selected, setSelected] = useState(null)
   const { loading, error, data } = useQuery(GET_CENTERS);
-   
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  
+
   return (
     <div className="page-content centers-page">
       <div className=" header">
-        <PageHeader title="Centers"/>
+        <PageHeader title="Centers" />
       </div>
 
       <div className=" search"></div>
@@ -62,7 +62,7 @@ const CentersList = () => {
         />
       </div>
       <div className=" filter">
-        <img className="map" src={map}/>
+        <img className="map" src={map} />
       </div>
       <div className="section paginator">Footer</div>
 

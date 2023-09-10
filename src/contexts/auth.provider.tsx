@@ -15,29 +15,29 @@ export const AuthProvider: React.FC<any> = ({ children }) => {
 
 
    useEffect(() => {
-      console.log("gggg",auth)
-      //check the user role_id and go fetch permissions
-      if (auth && auth.user?.role_id) {
-         const roleRef = doc(firestore_db, `roles/${auth.user.role_id}`)
-         onSnapshot(roleRef,(snapshot)=>{
+      console.log("gggg", auth)
+      //check the user roleId and go fetch permissions
+      if (auth && auth.user?.roleId) {
+         const roleRef = doc(firestore_db, `roles/${auth.user.roleId}`)
+         onSnapshot(roleRef, (snapshot) => {
             let role_data = snapshot.data()
-   
+
             setRole(role_data?.name)
 
-            let access_modules  = role_data?.permissions;
+            let access_modules = role_data?.permissions;
 
             for (const key of Object.keys(access_modules)) {
                // console.log(key, obj[key]);
                access_modules[key] = getPermissions(access_modules[key])
             }
 
-            console.warn('access modeles',access_modules)
+            console.warn('access modeles', access_modules)
             setPermissions(access_modules)
 
-        })
+         })
 
-      }else{
-         console.log("kkkkk",auth)
+      } else {
+         console.log("kkkkk", auth)
       }
 
    }, [auth])
@@ -47,7 +47,7 @@ export const AuthProvider: React.FC<any> = ({ children }) => {
       let perms = {
          isViewer: access === "viewer" || access === "editor" || access === "admin",
          isEditor: access === "editor" || access === "admin",
-         isAdmin:  access === "admin"
+         isAdmin: access === "admin"
       }
       return perms
    }

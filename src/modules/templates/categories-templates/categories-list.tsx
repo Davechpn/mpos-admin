@@ -13,45 +13,45 @@ const CategoriesList = () => {
   const [selectedCategory, setSelectedCategory] = useState();
   const [sidePaneView, setSidePaneView] = useState(SidePaneView.New)
 
-  const onAdd = () =>{
-      console.log('adding payment')
-      setSidePaneView(SidePaneView.New)
+  const onAdd = () => {
+    console.log('adding payment')
+    setSidePaneView(SidePaneView.New)
   }
-  const onEdit = () =>{
-      console.log('editing payment')
-      setSidePaneView(SidePaneView.Edit)
+  const onEdit = () => {
+    console.log('editing payment')
+    setSidePaneView(SidePaneView.Edit)
 
   }
-   return (
-      <div className="page-content payments-list-page">
+  return (
+    <div className="page-content payments-list-page">
       <div className="header">
-        <PageHeader title="Categories"/>
+        <PageHeader title="Categories" />
       </div>
 
-         
-  
+
+
       <div className="actions">
-          <Actions add={onAdd} edit={onEdit}/>
+        <Actions add={onAdd} edit={onEdit} />
       </div>
       <div className="list">
-         <DataGrid
-                rows={categories}
-                columns={categoriesColumns}
-                density='compact'
-                onRowClick={({ row }) => { setSelectedCategory(row) }}
-             />
+        <DataGrid
+          rows={categories}
+          columns={categoriesColumns}
+          density='compact'
+          onRowClick={({ row }) => { setSelectedCategory(row) }}
+        />
 
       </div>
       <div className="preview">
-          {sidePaneView === SidePaneView.Edit?
-          <CategoryForm selectedCategory={selectedCategory}/>:
+        {sidePaneView === SidePaneView.Edit ?
+          <CategoryForm selectedCategory={selectedCategory} /> :
           <CategoryForm />
-          }
-       
+        }
+
       </div>
 
     </div>
-   )
+  )
 }
 
 export default CategoriesList
@@ -61,12 +61,12 @@ const categoriesColumns: GridColDef[] = [{
   headerName: 'Name',
   width: 150
 }, {
-  field: "created_by",
+  field: "createdBy",
   headerName: 'Created By',
   width: 150
 },
 {
-  field: "created_date",
+  field: "createdAt",
   headerName: 'Date',
   width: 150
 }

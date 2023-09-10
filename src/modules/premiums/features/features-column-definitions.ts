@@ -28,11 +28,11 @@ export const promotionsColumns: GridColDef[] = [{
     headerName: 'Name',
     width: 150
 }, {
-    field: "start_date",
+    field: "startDate",
     headerName: 'Starts',
     width: 150
 }, {
-    field: "end_date",
+    field: "endDate",
     headerName: 'Ends',
     width: 150
 }

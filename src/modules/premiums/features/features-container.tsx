@@ -14,21 +14,22 @@ import { allFeaturesColumns, packagesColumns, promotionsColumns } from "./featur
 import FeatureForm from "./features/feature-form"
 import { PackageForm } from "./packages/package.form"
 import PromotionsForm from "./promotions/promotions-form"
+import FeatureList from "./features/features-list"
+import PackageList from "./packages/package.list"
+import PromotionsList from "./promotions/promotions-list"
 
 
 
 const FeaturesContainer = () => {
    const [value, setValue] = useState(0);
+   
    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
    };
 
-   const all_features: Feature[] = features;
-   const packages: Package[] = Packages
-   const promos:Promotion[] = promotions
+
    const onNew = () => {
       console.log('To add brand')
-
    }
 
    const onEdit = () => {
@@ -38,6 +39,7 @@ const FeaturesContainer = () => {
    const onDelete = (selected: any) => {
       console.log('Deleting brand', selected)
    }
+
    return (
       <div className="page-content premiums-list-page">
          <div className="header">
@@ -57,33 +59,19 @@ const FeaturesContainer = () => {
             </Box>
 
             <CustomTabPanel value={value} index={0}>
-               <DataGrid
-                  rows={all_features}
-                  columns={allFeaturesColumns}
-                  density='compact'
-                  onRowClick={({ row }) => { }}
-               />
+               <FeatureList/>
             </CustomTabPanel>
-
 
             <CustomTabPanel value={value} index={1}>
-               <DataGrid
-                  rows={packages}
-                  columns={packagesColumns}
-                  density='compact'
-                  onRowClick={({ row }) => { }}
-               />
+                <PackageList/>
             </CustomTabPanel>
+            
             <CustomTabPanel value={value} index={2}>
-            <DataGrid
-                  rows={promos}
-                  columns={promotionsColumns}
-                  density='compact'
-                  onRowClick={({ row }) => { }}
-               />
+                 <PromotionsList/>
             </CustomTabPanel>
 
          </div>
+
          <div className="prev">
           {[ <FeatureForm/>,
             <PackageForm/>,

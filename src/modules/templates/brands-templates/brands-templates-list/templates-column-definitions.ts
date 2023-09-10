@@ -5,7 +5,7 @@ export const draftTemplatesColumns: GridColDef[] = [{
     headerName: 'Name',
     width: 150
 }, {
-    field: "draft_type",
+    field: "draftType",
     headerName: 'Status',
     width: 150
 },
@@ -63,7 +63,7 @@ export const completedTemplatesColumns: GridColDef[] = [{
     headerName: "Date",
     width: 150
 }
-,
+    ,
 {
     field: "Implemantation",
     headerName: "Implemantation",

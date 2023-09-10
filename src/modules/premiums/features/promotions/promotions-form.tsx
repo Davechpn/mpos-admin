@@ -1,20 +1,23 @@
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material"
-import { useForm } from "react-hook-form"
+import { Controller, useController, useForm, useFormContext } from "react-hook-form"
 import { features } from "../../../../fake-db/features"
+import { DatePicker } from "@mui/x-date-pickers"
 
 const PromotionsForm = () => {
-    const { register, handleSubmit, formState } = useForm()
+    const { register, handleSubmit, control, formState } = useForm()
     const { errors } = formState
+    // const { control } = useFormContext();
+    // const { field } = useController({ control, name: 'ggg', defaultValue: null });
 
-    const onSave = () => {
-
+    const onSave = (e: any) => {
+        console.log('from dearils', e)
     }
     let country = 'Angola';
     let industry = 'retail';
     return (<div>
         <form className="premiums-form-container" onSubmit={handleSubmit(onSave)}>
             <TextField id="name" {...register("name")}
-            placeholder="Promotion name"
+                placeholder="Promotion name"
                 error={!!errors.name}
                 variant="standard"
                 helperText={errors.name?.message as string} /> <br />
@@ -27,14 +30,38 @@ const PromotionsForm = () => {
                 minRows={3}
                 helperText={errors.description?.message as string}
                 size="small" label="Description" variant="standard" />
-    <br/>
-      <span>Start date datepicker</span>
-     {/* Start date datepicker */}
-     <br/>
-      <span>End date datepicker</span>
-            {/* End date datepicker */}
+            <br />
+            <Controller
+                name="startDate"
+                control={control}
+                rules={{ required: true }}
+                defaultValue={null}
+                render={({ field: { onChange, value, ref } }) =>
+                    <DatePicker
+                        onChange={onChange}
+                        slotProps={{
+                            textField: {}
+                        }}
+                    />
+                }
+            />
 
-         
+            <Controller
+                name="endDate"
+                control={control}
+                rules={{ required: true }}
+                defaultValue={null}
+                render={({ field: { onChange, value, ref } }) =>
+                    <DatePicker
+                        onChange={onChange}
+                        slotProps={{
+                            textField: {}
+                        }}
+                    />
+                }
+            />
+
+
 
             <FormControl>
                 <InputLabel id="country-select-label">Features</InputLabel>

@@ -52,8 +52,8 @@ const Users = (props: any) => {
 
 
                 if (current_domain === 'role') {
-                    members = users.filter((user) => user.role_id === domain.id)
-                    non_members = users.filter((user) => user.role_id !== domain.id)
+                    members = users.filter((user) => user.roleId === domain.id)
+                    non_members = users.filter((user) => user.roleId !== domain.id)
                 }
 
                 if (current_domain === 'team') {
@@ -99,17 +99,17 @@ const Users = (props: any) => {
 
     }
 
-    const removeFromDomain = (user:any)=> {
-        let userRef = doc(firestore_db,`users/${user.id}`)
+    const removeFromDomain = (user: any) => {
+        let userRef = doc(firestore_db, `users/${user.id}`)
 
-        if(domain.space === 'role'){
-            updateDoc(userRef,{role_id : null}) 
+        if (domain.space === 'role') {
+            updateDoc(userRef, { roleId: null })
         }
 
-        if(domain.space === 'team'){
+        if (domain.space === 'team') {
             console.log(user)
-            const final_teams = user.teams.splice(domain.id,1)
-            updateDoc(userRef,{teams : final_teams})
+            const final_teams = user.teams.splice(domain.id, 1)
+            updateDoc(userRef, { teams: final_teams })
         }
 
 
@@ -138,7 +138,7 @@ const Users = (props: any) => {
                                 </div>
                                 <div className="invitation-item-action">
                                     <TextsmsIcon fontSize="small" onClick={() => openPMP(user)} />
-                                    <DeleteOutline onClick={()=> removeFromDomain(user)} />
+                                    <DeleteOutline onClick={() => removeFromDomain(user)} />
                                 </div>
                             </div>
 

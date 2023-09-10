@@ -17,7 +17,7 @@ const DraftTemplateActions = () => {
                     <li>2. Click edit and continue editing</li>
                     <li>3. Resubmit when finished</li>
                     <li>4. If not finished save as draft</li>
-                </ul><br/>
+                </ul><br />
                 <h5>Why rejected</h5>
                 <span className="actions-instructions">The picture should have a transparent background</span>
 
@@ -35,7 +35,7 @@ const DraftTemplateActions = () => {
                     <li>2. Click edit and continue editing</li>
                     <li>3. Resubmit when finished</li>
                     <li>4. If not finished save as draft</li>
-                </ul><br/>
+                </ul><br />
                 <h5>Why Review</h5>
                 <span className="actions-instructions">Contact details no longer used</span>
 
@@ -47,19 +47,19 @@ const DraftTemplateActions = () => {
 
 
 
-    const draft_type: string = DraftType.Review
+    const draftType: string = DraftType.Review
 
     return <div className="template-actions-container">
-        <div className="template-actions-header">DRAFT : {draft_type} - TODO</div>
+        <div className="template-actions-header">DRAFT : {draftType} - TODO</div>
         <div className="template-actions-body">
-            {draft_type === DraftType.FromClient && fromClient()}
-            {draft_type === DraftType.ClientEdits && clientEdits()}
-            {draft_type === DraftType.InProgress && inProgress()}
-            {draft_type === DraftType.Rejected && rejected()}
-            {draft_type === DraftType.Review && review()}
+            {draftType === DraftType.FromClient && fromClient()}
+            {draftType === DraftType.ClientEdits && clientEdits()}
+            {draftType === DraftType.InProgress && inProgress()}
+            {draftType === DraftType.Rejected && rejected()}
+            {draftType === DraftType.Review && review()}
         </div>
         <div className="template-actions-footer">
-            {draft_type === DraftType.InProgress && <TextField
+            {draftType === DraftType.InProgress && <TextField
                 variant='outlined'
                 fullWidth
                 placeholder="Draft Notes"

@@ -12,7 +12,7 @@ const BrandTemplateActions = (props: any) => {
     return (
         <div className="details-container">
 
-            <div className="details-pane" style={{flexGrow:1}}>
+            <div className="details-pane" style={{ flexGrow: 1 }}>
 
                 <div className="detail-item" >
                     <div className="image-container"><img src={brandTemplate.image.url} className="brandtemplate-image" />
@@ -75,7 +75,7 @@ const BrandTemplateActions = (props: any) => {
                     </div>
                     <div className="detail-item">
                         <div className="detail-name">Address</div>
-                        <div className="detail-value">{brandTemplate.street_address}, {brandTemplate.city}</div>
+                        <div className="detail-value">{brandTemplate.streetAddress}, {brandTemplate.city}</div>
                     </div>
                     <div className="detail-item">
                         <div className="detail-name">Country</div>
@@ -93,7 +93,7 @@ const BrandTemplateActions = (props: any) => {
                         <div className="detail-name">Tel</div>
                         <div className="detail-value values-group">
                             {
-                                brandTemplate.tel_numbers.map((tel) => {
+                                brandTemplate.telNumbers.map((tel) => {
                                     return <div key={tel.number} className="values-group-item">{tel.number}</div>
                                 })
                             }
@@ -104,7 +104,7 @@ const BrandTemplateActions = (props: any) => {
                         <div className="detail-name">AddOn Categories</div>
                         <div className="detail-value values-group">
                             {
-                                brandTemplate.addon_categories.map((addon_category) => {
+                                brandTemplate.addonCategories.map((addon_category) => {
                                     return <div key={addon_category} className="values-group-item">{addon_category}</div>
                                 })
                             }

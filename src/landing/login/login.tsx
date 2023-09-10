@@ -29,7 +29,7 @@ const Login = () => {
                 {
                     headers: { 'content-Type': 'application/json' }
                 })
-            
+
 
 
             navigate("/", { replace: true });
@@ -45,16 +45,16 @@ const Login = () => {
 
             let dbUser: any = { ...db_user.data(), id: db_user.id, avatar }
             console.log('ther', db_user.data())
-       
+
 
             if (db_user.data()) {
-                if (dbUser.suspendend_date) {
+                if (dbUser.suspendendAt) {
                     navigate("/suspended", { replace: true });
                 }
-                if (!dbUser.contact) {                   
-                    navigate(`/setup/${dbUser.verification_code}`, { replace: true });
+                if (!dbUser.contact) {
+                    navigate(`/setup/${dbUser.verificationCode}`, { replace: true });
                 }
-                if (dbUser.contact && !dbUser.suspendend_date) {
+                if (dbUser.contact && !dbUser.suspendendAt) {
                     setAuth({
                         user: dbUser,
                         token: token

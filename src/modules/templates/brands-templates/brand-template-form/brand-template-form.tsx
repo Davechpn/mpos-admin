@@ -16,7 +16,7 @@ const schema = yup.object({
     description: yup.string().required('Description is required'),
     category: yup.string().required('Category is required'),
     manufacturer: yup.string().required("Manufacturer is required"),
-    street_address: yup.string().required('Street address is required'),
+    streetAddress: yup.string().required('Street address is required'),
     city: yup.string().required("Manufacturer city is required"),
     country: yup.string().required("Manufacturer country is required"),
     website: yup.string().url('Invalid url format'),
@@ -24,11 +24,11 @@ const schema = yup.object({
     sizes: yup.array(),
     units: yup.array(),
     varieties: yup.array(),
-    addon_categories: yup.array(),
-    tel_numbers: yup.array()
+    addonCategories: yup.array(),
+    telNumbers: yup.array()
 })
 
-const BrandTemplateForm = (props:any) => {
+const BrandTemplateForm = (props: any) => {
     console.log(props);
 
     const { register, handleSubmit, control, formState } = useForm({
@@ -54,12 +54,12 @@ const BrandTemplateForm = (props:any) => {
     })
 
     const { fields: addonCategoriesFields, append: appendAddonCategory, remove: removeAddonCategory } = useFieldArray<any>({
-        name: 'addon_categories',
+        name: 'addonCategories ',
         control
     })
 
     const { fields: telNumbersFields, append: appendTelNumber, remove: removeTelNumber } = useFieldArray<any>({
-        name: 'tel_numbers',
+        name: 'telNumbers',
         control
     })
 
@@ -130,9 +130,9 @@ const BrandTemplateForm = (props:any) => {
 
 
                         <div className="double-field-item">
-                            <TextField id="standard-basic"  {...register("street_address")}
-                                error={!!errors.street_address}
-                                helperText={errors.street_address?.message as string}
+                            <TextField id="standard-basic"  {...register("streetAddress")}
+                                error={!!errors.streetAddress}
+                                helperText={errors.streetAddress?.message as string}
                                 size="small" label="Street Address" variant="standard" />
                             <TextField id="standard-basic"  {...register("city")}
                                 error={!!errors.city}
@@ -226,7 +226,7 @@ const BrandTemplateForm = (props:any) => {
                             {addonCategoriesFields.map((field, index) => {
                                 return <div className="array-item" key={field.id}>
                                     <div className="array-item-label">
-                                        <input style={{ width: "120px" }} className="array-item-input" type="text" {...register(`addon_categories.${index}`)} placeholder="Enter category.." />
+                                        <input style={{ width: "120px" }} className="array-item-input" type="text" {...register(`addonCategories.${index}`)} placeholder="Enter category.." />
                                     </div>
                                     <div className="array-item-action">
                                         <button className="array-item-remove" onClick={() => removeAddonCategory(index)}>x</button>
@@ -243,8 +243,8 @@ const BrandTemplateForm = (props:any) => {
                             {telNumbersFields.map((field, index) => {
                                 return <div className="tel-item" key={field.id}>
                                     <div className="tel-item-label">
-                                        <input style={{ width: "120px" }} className="tel-item-input" type="text" {...register(`tel_numbers.${index}.name`)} placeholder="Enter name.." />
-                                        <input style={{ width: "120px" }} className="tel-item-input" type="text" {...register(`tel_numbers.${index}.number`)} placeholder="Enter number.." />
+                                        <input style={{ width: "120px" }} className="tel-item-input" type="text" {...register(`telNumbers.${index}.name`)} placeholder="Enter name.." />
+                                        <input style={{ width: "120px" }} className="tel-item-input" type="text" {...register(`telNumbers.${index}.number`)} placeholder="Enter number.." />
                                     </div>
                                     <div className="array-item-action">
                                         <button className="array-item-remove" onClick={() => removeTelNumber(index)}>x</button>

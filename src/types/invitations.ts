@@ -1,9 +1,9 @@
 export interface Invitation {
-    id:string,
-    email:string,
-    name:string,
-    role_id:string,
-    status:string,
-    verification_code:number,
-    timestamp:number
+    id: string,
+    email: string,
+    name: string,
+    roleId: string,
+    status: string,
+    verificationCode: number,
+    timestamp: number
 }

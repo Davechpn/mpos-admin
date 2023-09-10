@@ -52,9 +52,9 @@ export default function NewUser(props: any) {
           setIsLoading(false)
         } else {
           console.warn('User exist update only domains')
-          let updates = domain.space === 'role'? {role_id:domain.id} : {teams:[...user.teams, domain.id]}
-          console.log('updates',updates)
-          updateDoc(userRef,updates).then(x=> {
+          let updates = domain.space === 'role' ? { roleId: domain.id } : { teams: [...user.teams, domain.id] }
+          console.log('updates', updates)
+          updateDoc(userRef, updates).then(x => {
             setNewUser({
               name: '',
               id: '',
@@ -69,21 +69,21 @@ export default function NewUser(props: any) {
           name: newUser.name,
           email: newUser.id,
           avatar: "",
-          role_id: domain.space === 'role' ? domain.id : null,
+          roleId: domain.space === 'role' ? domain.id : null,
           teams: domain.space === 'team' ? [domain.id] : [],
-          suspendend_date: null,
+          suspendendAt: null,
           contact: null,
           country: null,
           status: 'invited',
-          verification_code: Math.floor(Math.random() * 1000000),
-          created_date: new Date().getTime() / 1000,
+          verificationCode: Math.floor(Math.random() * 1000000),
+          createdAt: new Date().getTime() / 1000,
           timestamp: new Date().getTime() / 1000,
-          created_by: auth.user.id
+          createdBy: auth.user.id
         }
-       
+
 
         console.log('User dont exist create new', dbUser)
-        setDoc(userRef, dbUser).then(x=>{
+        setDoc(userRef, dbUser).then(x => {
           setIsLoading(false)
           handleClose()
         })

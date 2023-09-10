@@ -1,88 +1,89 @@
 export interface image {
     url: string,
-    incomplete:boolean,
-    incomplete_message:string,
-    is_transparent: boolean
+    incomplete: boolean,
+    incompleteMessage: string,
+    isTransparent: boolean,
+    side: string
 }
 
-export const enum DraftType{
-    FromClient ="From client",
-    InProgress="In progress",
-    Rejected="Rejected",
-    Review="Review",
-    ClientEdits="Client edits"
+export const enum DraftType {
+    FromClient = "FromClient",
+    InProgress = "InProgress",
+    Rejected = "Rejected",
+    Review = "Review",
+    ClientEdits = "ClientEdits"
 }
 
-export const enum DarftSources{
-    Client ="Client",
-    Mine="Mine",
-    Reviewer="Reviewer",
-    Admin="Admin"
+export const enum DarftSources {
+    Client = "Client",
+    Mine = "Mine",
+    Reviewer = "Reviewer",
+    Admin = "Admin"
 }
 
 export interface ClientEdit {
-    client_id: number,
+    clientId: number,
     action: string,
     field: string,
-    new_value: string,
-    old_value: string,
+    newValue: string,
+    oldValue: string,
     approved: boolean,
-    approved_time: number,
-    approved_by: string,
+    approvedTime: number,
+    approvedBy: string,
     reviewed: boolean,
-    reviewed_by: string,
-    review_date: number
+    reviewedBy: string,
+    reviewedAt: number
 }
 
 export interface ClientRating {
-    client_id: number,
+    clientId: number,
     rating: number,
-    good_implematation:boolean,
+    goodImplematation: boolean,
     comment: string
 }
 
 export interface Tel {
-    name:string,
-    number:string
+    name: string,
+    number: string
 }
 export interface BrandTemplate {
     id: string
     name: string
-    description:string
+    description: string
     tags: string[]
     image: image
-    threeD_image?: image | null,
+    threeDImage?: image | null,
     video: string,
     sizes: string[]
     units: string[]
     category: string
-    addon_categories:string[]
+    addonCategories: string[]
     varieties: string[]
     manufacturer: string
-    street_address: string
+    streetAddress: string
     city: string
     country: string
     email: string,
-    tel_numbers:Tel[],
+    telNumbers: Tel[],
     website: string,
-    draft_notes:string,
-    draft_type:string, //eg review, image adjustment, rejected, new from client, client Edition
-    draft_created_at:number,
-    created_by: number
-    created_date: number
-    reviewed_at: number
-    review_notes:string
-    reviewer_id:number
-    in_review:boolean
+    draftNotes: string,
+    draftType: string, //eg review, image adjustment, rejected, new from client, client Edition
+    draftCreatedAt: number,
+    createdBy: number
+    createdAt: number
+    reviewedAt: number
+    reviewNotes: string
+    reviewerId: number
+    inReview: boolean
     is_approved: boolean
-    last_modified: number
-    client_edits: ClientEdit[],
-    creator_client_id: number | null
-    creator_client_product_id:number | null
-    from_client_cleaned_by:number | null
-    Implementation_ratings: ClientRating[]
-    has_zero_deposit_order: boolean
-    has_transparency_all: boolean
-    is_not_for_under_18: boolean
-    is_dirty: boolean
+    lastModified: number
+    clientEdits: ClientEdit[],
+    creatorClientId: number | null
+    creatorClientProductId: number | null
+    fromClientCleanedBy: number | null
+    ImplementationRatings: ClientRating[]
+    hasZeroDepositOrder: boolean
+    hasTransparencyAll: boolean
+    isNotForUnder18: boolean
+    isDirty: boolean
 }

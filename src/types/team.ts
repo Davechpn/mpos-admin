@@ -1,30 +1,34 @@
 export interface Team {
-    id:string,
-    name:string,
-    date_created:number,
-    led_by:string
+    id: string,
+    name: string,
+    createdAt: number,
+    leader: string
 }
 
-export interface Goal{
-    id:string,
-    team_id:string,
-    description:string,
-    start_date:number,
-    created_date:number,
-    deadline:number,
-    active:boolean,
-    is_complete:boolean,
-    tasks:Task[]
+export interface Goal {
+    id: string,
+    title: string,
+    teamId: string,
+    description: string,
+    startDate: number,
+    createdAt: number,
+    deadline: number,
+    active: boolean,
+    isComplete: boolean,
+    tasks: Task[]
 }
 
-export interface Task{
-
-    summary:string,
-    comments:string,
-    date_created:number,
-    start_date:number,
-    due_date:number,
-    assignee:number,
-    priority:string,
-    stage:string
+export interface Task {
+    title: string,
+    summary: string,
+    comments: string,
+    createdAt: number,
+    startDate: number,
+    dueDate: number,
+    assignee: any,
+    assigneeId: string
+    priority: string,
+    stage: string
+    createdBy: any
+    createdById: string
 }

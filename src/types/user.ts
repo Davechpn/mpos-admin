@@ -1,20 +1,20 @@
 import { Contact } from "./contact"
 
-export interface User{
-    id?:string
+export interface User {
+    id?: string
     name: string
-    email:string
-    avatar:string
-    role_id: string
+    email: string
+    avatar: string
+    roleId: string
     teams: string[]
-    suspendend_date: number | null
-    contact:Contact | null
-    country:string | null
-    status:string
-    verification_code:number
-    created_date:number
-    created_by:string
-    timestamp:number
+    suspendendAt: number | null
+    contact: Contact | null
+    country: string | null
+    status: string
+    verificationCode: number
+    createdAt: number
+    createdBy: string
+    timestamp: number
 }
 
 

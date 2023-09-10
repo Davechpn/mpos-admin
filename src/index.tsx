@@ -7,7 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 import { AuthProvider } from './contexts/auth.provider';
 import { MessagesProvider } from './contexts/messages.provider';
-
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import SocketProvider from './contexts/socket.provider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,15 +22,17 @@ const client = new ApolloClient({
 
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
+    <SocketProvider>
       <AuthProvider>
-        <MessagesProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </MessagesProvider>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <MessagesProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </MessagesProvider>
+        </LocalizationProvider>
       </AuthProvider>
-    </ApolloProvider>
+    </SocketProvider>
   </React.StrictMode>
 );
 

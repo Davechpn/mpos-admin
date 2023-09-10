@@ -8,29 +8,29 @@ import './setup.css'
 
 const Setup = () => {
     const { register, handleSubmit, control, watch, formState: { errors } } = useForm();
-    const [ selectedCountry, setSelectedCountry] = useState<any>({ value: "Zambia", label: "Zambia" })
+    const [selectedCountry, setSelectedCountry] = useState<any>({ value: "Zambia", label: "Zambia" })
     const { field } = useController({ name: 'country', control })
-    const [ userId , setUserId ] = useState("")
+    const [userId, setUserId] = useState("")
     let { code } = useParams()
 
-    useEffect(()=>{
-        const usersRef = collection(firestore_db,`users`)
-        const db_query = query(usersRef,where('verification_code','==',code))
-        getDocs(db_query).then((x)=>{
+    useEffect(() => {
+        const usersRef = collection(firestore_db, `users`)
+        const db_query = query(usersRef, where('verificationCode', '==', code))
+        getDocs(db_query).then((x) => {
             console.log('User', x.docs[0].id)
             setUserId(x.docs[0].id)
         })
 
-    },[])
+    }, [])
 
     const save = (data: any) => {
-        const contacts =  {...data, country:selectedCountry}
+        const contacts = { ...data, country: selectedCountry }
 
         console.log(contacts);
 
-        const userRef = doc(firestore_db,`users/${userId}`)
+        const userRef = doc(firestore_db, `users/${userId}`)
 
-        updateDoc(userRef,{contact:contacts, status:'joined'})
+        updateDoc(userRef, { contact: contacts, status: 'joined' })
 
     }
 
@@ -50,7 +50,7 @@ const Setup = () => {
         <div className="setup-container">
             <div className=""></div>
             <form onSubmit={handleSubmit(save)}>
-        
+
                 <TextField {...register('cell')} />
                 <TextField {...register('address')} label="address" />
                 <TextField {...register('city')} label="city" />
